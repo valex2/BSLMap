@@ -1,38 +1,21 @@
-import {createMap, setWebGlContext} from '../../util/test/util';
-import FullscreenControl from './fullscreen_control';
+import {createMap, beforeMapTest} from '../../util/test/util';
+import {FullscreenControl} from './fullscreen_control';
 
 beforeEach(() => {
-    setWebGlContext();
-    window.performance.mark = jest.fn();
+    beforeMapTest();
 });
 
 describe('FullscreenControl', () => {
-    test('appears when fullscreen is enabled', () => {
+    test('renders control', () => {
         Object.defineProperty(window.document, 'fullscreenEnabled', {
             value: true,
             writable: true,
         });
         const map = createMap(undefined, undefined);
-        const fullscreen = new FullscreenControl(undefined);
+        const fullscreen = new FullscreenControl({});
         map.addControl(fullscreen);
 
         expect(map.getContainer().querySelectorAll('.maplibregl-ctrl-fullscreen')).toHaveLength(1);
-    });
-
-    test('does not appear when fullscreen is not enabled', () => {
-        Object.defineProperty(window.document, 'fullscreenEnabled', {
-            value: false,
-            writable: true,
-        });
-
-        jest.spyOn(console, 'warn').mockImplementation(() => { });
-
-        const map = createMap(undefined, undefined);
-        const fullscreen = new FullscreenControl(undefined);
-        map.addControl(fullscreen);
-
-        expect(map.getContainer().querySelectorAll('.maplibregl-ctrl-fullscreen')).toHaveLength(0);
-        expect(console.warn).toHaveBeenCalledWith('This device does not support fullscreen mode.');
     });
 
     test('makes optional container element full screen', () => {
@@ -42,7 +25,8 @@ describe('FullscreenControl', () => {
         });
 
         const map = createMap(undefined, undefined);
-        const fullscreen = new FullscreenControl({container: window.document.querySelector('body')});
+        const container = window.document.querySelector('body')!;
+        const fullscreen = new FullscreenControl({container});
         map.addControl(fullscreen);
         const control = map._controls.find((ctrl) => {
             return Object.prototype.hasOwnProperty.call(ctrl, '_fullscreen');
@@ -50,5 +34,81 @@ describe('FullscreenControl', () => {
         control._onClickFullscreen();
 
         expect(control._container.tagName).toBe('BODY');
+    });
+
+    test('uses pseudo fullscreen when fullscreen is not supported', () => {
+        const map = createMap(undefined, undefined);
+        const mapContainer = map.getContainer();
+
+        const fullscreen = new FullscreenControl({});
+        map.addControl(fullscreen);
+        const control = map._controls.find((ctrl) => {
+            return Object.prototype.hasOwnProperty.call(ctrl, '_fullscreen');
+        }) as FullscreenControl;
+
+        expect(mapContainer.classList.contains('maplibregl-pseudo-fullscreen')).toBe(false);
+        control._onClickFullscreen();
+        expect(mapContainer.classList.contains('maplibregl-pseudo-fullscreen')).toBe(true);
+        control._onClickFullscreen();
+        expect(mapContainer.classList.contains('maplibregl-pseudo-fullscreen')).toBe(false);
+    });
+
+    test('start and end events fire for fullscreen button clicks', () => {
+        const map = createMap(undefined, undefined);
+        const fullscreen = new FullscreenControl({});
+
+        const fullscreenstart = jest.fn();
+        const fullscreenend   = jest.fn();
+
+        fullscreen.on('fullscreenstart', fullscreenstart);
+        fullscreen.on('fullscreenend', fullscreenend);
+
+        map.addControl(fullscreen);
+
+        const click = new window.Event('click');
+
+        // Simulate a click to the fullscreen button
+        fullscreen._fullscreenButton.dispatchEvent(click);
+        expect(fullscreenstart).toHaveBeenCalled();
+        expect(fullscreenend).not.toHaveBeenCalled();
+
+        // Second simulated click would exit fullscreen mode
+        fullscreen._fullscreenButton.dispatchEvent(click);
+        expect(fullscreenend).toHaveBeenCalled();
+    });
+
+    test('disables cooperative gestures when fullscreen becomes active', () => {
+        const cooperativeGestures = true;
+        const map = createMap({cooperativeGestures});
+        const fullscreen = new FullscreenControl({});
+
+        map.addControl(fullscreen);
+
+        const click = new window.Event('click');
+
+        // Simulate a click to the fullscreen button
+        fullscreen._fullscreenButton.dispatchEvent(click);
+        expect(map.cooperativeGestures.isEnabled()).toBeFalsy();
+
+        // Second simulated click would exit fullscreen mode
+        fullscreen._fullscreenButton.dispatchEvent(click);
+        expect(map.cooperativeGestures.isEnabled()).toBeTruthy();
+    });
+
+    test('if never set, cooperative gestures remain disabled when fullscreen exits', () => {
+        const map = createMap({cooperativeGestures: false});
+        const fullscreen = new FullscreenControl({});
+
+        map.addControl(fullscreen);
+
+        const click = new window.Event('click');
+
+        // Simulate a click to the fullscreen button
+        fullscreen._fullscreenButton.dispatchEvent(click);
+        expect(map.cooperativeGestures.isEnabled()).toBeFalsy();
+
+        // Second simulated click would exit fullscreen mode
+        fullscreen._fullscreenButton.dispatchEvent(click);
+        expect(map.cooperativeGestures.isEnabled()).toBeFalsy();
     });
 });

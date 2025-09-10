@@ -22,6 +22,16 @@ describe('Evented', () => {
 
     });
 
+    test('returns a promise when no listener is provided to "once" method', async () => {
+        const evented = new Evented();
+        const promise = evented.once('a');
+        evented.fire(new Event('a'));
+        evented.fire(new Event('a'));
+        await promise;
+        expect(evented.listens('a')).toBeFalsy();
+
+    });
+
     test('passes data to listeners', () => {
         const evented = new Evented();
         evented.on('a', (data) => {
@@ -95,13 +105,12 @@ describe('Evented', () => {
 
     });
 
-    test('does not immediately call listeners added within another listener', done => {
+    test('does not immediately call listeners added within another listener', () => {
         const evented = new Evented();
         evented.on('a', () => {
-            evented.on('a', () => done('fail'));
+            evented.on('a', () => { throw new Error('fail'); });
         });
         evented.fire(new Event('a'));
-        done();
     });
 
     test('has backward compatibility for fire(string, object) API', () => {

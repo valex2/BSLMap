@@ -1,3 +1,0 @@
-{"pathogens": ["SARS-CoV-2"], "research_types": ["experimental"], "evidence_spans": ["experiments with SARS-CoV-2 in our BSL-3 facility"], "confidence": 0.9, "ppp_or_gof": false, "doc_id": "pmid:40924481#chunk0", "source_pmid": "40924481"}
-{"pathogens": ["IDP"], "research_types": ["experimental"], "evidence_spans": ["IDP breakthroughs"], "confidence": 0.9, "ppp_or_gof": false, "doc_id": "pmid:40919024#chunk0", "source_pmid": "40919024"}
-{"pathogens": ["SARS-CoV-2"], "research_types": ["experimental"], "evidence_spans": ["experiments with SARS-CoV-2 in our BSL-3 facility"], "confidence": 0.9, "ppp_or_gof": false, "doc_id": "pmid:40901926#chunk0", "source_pmid": "40901926"}

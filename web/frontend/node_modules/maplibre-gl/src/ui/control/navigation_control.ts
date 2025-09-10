@@ -1,19 +1,32 @@
 import Point from '@mapbox/point-geometry';
 
-import DOM from '../../util/dom';
-import {extend, bindAll} from '../../util/util';
-import {MouseRotateHandler, MousePitchHandler} from '../handler/mouse';
+import {DOM} from '../../util/dom';
+import {extend} from '../../util/util';
+import {generateMousePitchHandler, generateMouseRotationHandler, MousePitchHandler, MouseRotateHandler} from '../handler/mouse';
+import {generateOneFingerTouchPitchHandler, generateOneFingerTouchRotationHandler, OneFingerTouchPitchHandler, OneFingerTouchRotateHandler} from '../handler/one_finger_touch_drag';
 
-import type Map from '../map';
+import type {Map} from '../map';
 import type {IControl} from './control';
 
-type NavigationOptions = {
+/**
+ * The {@link NavigationControl} options object
+ */
+type NavigationControlOptions = {
+    /**
+     * If `true` the compass button is included.
+     */
     showCompass?: boolean;
+    /**
+     * If `true` the zoom-in and zoom-out buttons are included.
+     */
     showZoom?: boolean;
+    /**
+     * If `true` the pitch is visualized by rotating X-axis of compass.
+     */
     visualizePitch?: boolean;
 };
 
-const defaultOptions: NavigationOptions = {
+const defaultOptions: NavigationControlOptions = {
     showCompass: true,
     showZoom: true,
     visualizePitch: false
@@ -22,20 +35,18 @@ const defaultOptions: NavigationOptions = {
 /**
  * A `NavigationControl` control contains zoom buttons and a compass.
  *
- * @implements {IControl}
- * @param {Object} [options]
- * @param {Boolean} [options.showCompass=true] If `true` the compass button is included.
- * @param {Boolean} [options.showZoom=true] If `true` the zoom-in and zoom-out buttons are included.
- * @param {Boolean} [options.visualizePitch=false] If `true` the pitch is visualized by rotating X-axis of compass.
+ * @group Markers and Controls
+ *
  * @example
- * var nav = new maplibregl.NavigationControl();
+ * ```ts
+ * let nav = new NavigationControl();
  * map.addControl(nav, 'top-left');
- * @see [Display map navigation controls](https://maplibre.org/maplibre-gl-js-docs/example/navigation/)
- * @see [Add a third party vector tile source](https://maplibre.org/maplibre-gl-js-docs/example/third-party/)
+ * ```
+ * @see [Display map navigation controls](https://maplibre.org/maplibre-gl-js/docs/examples/navigation/)
  */
-class NavigationControl implements IControl {
+export class NavigationControl implements IControl {
     _map: Map;
-    options: NavigationOptions;
+    options: NavigationControlOptions;
     _container: HTMLElement;
     _zoomInButton: HTMLButtonElement;
     _zoomOutButton: HTMLButtonElement;
@@ -43,39 +54,35 @@ class NavigationControl implements IControl {
     _compassIcon: HTMLElement;
     _handler: MouseRotateWrapper;
 
-    constructor(options: NavigationOptions) {
+    /**
+     * @param options - the control's options
+     */
+    constructor(options?: NavigationControlOptions) {
         this.options = extend({}, defaultOptions, options);
 
-        this._container = DOM.create('div', 'maplibregl-ctrl maplibregl-ctrl-group mapboxgl-ctrl mapboxgl-ctrl-group');
+        this._container = DOM.create('div', 'maplibregl-ctrl maplibregl-ctrl-group');
         this._container.addEventListener('contextmenu', (e) => e.preventDefault());
 
         if (this.options.showZoom) {
-            bindAll([
-                '_setButtonTitle',
-                '_updateZoomButtons'
-            ], this);
-            this._zoomInButton = this._createButton('maplibregl-ctrl-zoom-in mapboxgl-ctrl-zoom-in', (e) => this._map.zoomIn({}, {originalEvent: e}));
-            DOM.create('span', 'maplibregl-ctrl-icon mapboxgl-ctrl-icon', this._zoomInButton).setAttribute('aria-hidden', 'true');
-            this._zoomOutButton = this._createButton('maplibregl-ctrl-zoom-out mapboxgl-ctrl-zoom-out', (e) => this._map.zoomOut({}, {originalEvent: e}));
-            DOM.create('span', 'maplibregl-ctrl-icon mapboxgl-ctrl-icon', this._zoomOutButton).setAttribute('aria-hidden', 'true');
+            this._zoomInButton = this._createButton('maplibregl-ctrl-zoom-in', (e) => this._map.zoomIn({}, {originalEvent: e}));
+            DOM.create('span', 'maplibregl-ctrl-icon', this._zoomInButton).setAttribute('aria-hidden', 'true');
+            this._zoomOutButton = this._createButton('maplibregl-ctrl-zoom-out', (e) => this._map.zoomOut({}, {originalEvent: e}));
+            DOM.create('span', 'maplibregl-ctrl-icon', this._zoomOutButton).setAttribute('aria-hidden', 'true');
         }
         if (this.options.showCompass) {
-            bindAll([
-                '_rotateCompassArrow'
-            ], this);
-            this._compass = this._createButton('maplibregl-ctrl-compass mapboxgl-ctrl-compass', (e) => {
+            this._compass = this._createButton('maplibregl-ctrl-compass', (e) => {
                 if (this.options.visualizePitch) {
                     this._map.resetNorthPitch({}, {originalEvent: e});
                 } else {
                     this._map.resetNorth({}, {originalEvent: e});
                 }
             });
-            this._compassIcon = DOM.create('span', 'maplibregl-ctrl-icon mapboxgl-ctrl-icon', this._compass);
+            this._compassIcon = DOM.create('span', 'maplibregl-ctrl-icon', this._compass);
             this._compassIcon.setAttribute('aria-hidden', 'true');
         }
     }
 
-    _updateZoomButtons() {
+    _updateZoomButtons = () => {
         const zoom = this._map.getZoom();
         const isMax = zoom === this._map.getMaxZoom();
         const isMin = zoom === this._map.getMinZoom();
@@ -83,16 +90,17 @@ class NavigationControl implements IControl {
         this._zoomOutButton.disabled = isMin;
         this._zoomInButton.setAttribute('aria-disabled', isMax.toString());
         this._zoomOutButton.setAttribute('aria-disabled', isMin.toString());
-    }
+    };
 
-    _rotateCompassArrow() {
+    _rotateCompassArrow = () => {
         const rotate = this.options.visualizePitch ?
             `scale(${1 / Math.pow(Math.cos(this._map.transform.pitch * (Math.PI / 180)), 0.5)}) rotateX(${this._map.transform.pitch}deg) rotateZ(${this._map.transform.angle * (180 / Math.PI)}deg)` :
             `rotate(${this._map.transform.angle * (180 / Math.PI)}deg)`;
 
         this._compassIcon.style.transform = rotate;
-    }
+    };
 
+    /** {@inheritDoc IControl.onAdd} */
     onAdd(map: Map) {
         this._map = map;
         if (this.options.showZoom) {
@@ -113,6 +121,7 @@ class NavigationControl implements IControl {
         return this._container;
     }
 
+    /** {@inheritDoc IControl.onRemove} */
     onRemove() {
         DOM.remove(this._container);
         if (this.options.showZoom) {
@@ -137,11 +146,11 @@ class NavigationControl implements IControl {
         return a;
     }
 
-    _setButtonTitle(button: HTMLButtonElement, title: string) {
+    _setButtonTitle = (button: HTMLButtonElement, title: 'ZoomIn' | 'ZoomOut' | 'ResetBearing') => {
         const str = this._map._getUIString(`NavigationControl.${title}`);
         button.title = str;
         button.setAttribute('aria-label', str);
-    }
+    };
 }
 
 class MouseRotateWrapper {
@@ -149,39 +158,61 @@ class MouseRotateWrapper {
     map: Map;
     _clickTolerance: number;
     element: HTMLElement;
+    // Rotation and pitch handlers are separated due to different _clickTolerance values
     mouseRotate: MouseRotateHandler;
+    touchRotate: OneFingerTouchRotateHandler;
     mousePitch: MousePitchHandler;
+    touchPitch: OneFingerTouchPitchHandler;
     _startPos: Point;
     _lastPos: Point;
 
     constructor(map: Map, element: HTMLElement, pitch: boolean = false) {
         this._clickTolerance = 10;
+        const mapRotateTolerance = map.dragRotate._mouseRotate.getClickTolerance();
+        const mapPitchTolerance = map.dragRotate._mousePitch.getClickTolerance();
         this.element = element;
-        this.mouseRotate = new MouseRotateHandler({clickTolerance: map.dragRotate._mouseRotate._clickTolerance});
+        this.mouseRotate = generateMouseRotationHandler({clickTolerance: mapRotateTolerance, enable: true});
+        this.touchRotate = generateOneFingerTouchRotationHandler({clickTolerance: mapRotateTolerance, enable: true});
         this.map = map;
-        if (pitch) this.mousePitch = new MousePitchHandler({clickTolerance: map.dragRotate._mousePitch._clickTolerance});
+        if (pitch) {
+            this.mousePitch = generateMousePitchHandler({clickTolerance: mapPitchTolerance, enable: true});
+            this.touchPitch = generateOneFingerTouchPitchHandler({clickTolerance: mapPitchTolerance, enable: true});
+        }
 
-        bindAll(['mousedown', 'mousemove', 'mouseup', 'touchstart', 'touchmove', 'touchend', 'reset'], this);
         DOM.addEventListener(element, 'mousedown', this.mousedown);
         DOM.addEventListener(element, 'touchstart', this.touchstart, {passive: false});
-        DOM.addEventListener(element, 'touchmove', this.touchmove);
-        DOM.addEventListener(element, 'touchend', this.touchend);
         DOM.addEventListener(element, 'touchcancel', this.reset);
     }
 
-    down(e: MouseEvent, point: Point) {
-        this.mouseRotate.mousedown(e, point);
-        if (this.mousePitch) this.mousePitch.mousedown(e, point);
+    startMouse(e: MouseEvent, point: Point) {
+        this.mouseRotate.dragStart(e, point);
+        if (this.mousePitch) this.mousePitch.dragStart(e, point);
         DOM.disableDrag();
     }
 
-    move(e: MouseEvent, point: Point) {
+    startTouch(e: TouchEvent, point: Point) {
+        this.touchRotate.dragStart(e, point);
+        if (this.touchPitch) this.touchPitch.dragStart(e, point);
+        DOM.disableDrag();
+    }
+
+    moveMouse(e: MouseEvent, point: Point) {
         const map = this.map;
-        const r = this.mouseRotate.mousemoveWindow(e, point) as any;
-        if (r && r.bearingDelta) map.setBearing(map.getBearing() + r.bearingDelta);
+        const {bearingDelta} = this.mouseRotate.dragMove(e, point) || {};
+        if (bearingDelta) map.setBearing(map.getBearing() + bearingDelta);
         if (this.mousePitch) {
-            const p = this.mousePitch.mousemoveWindow(e, point) as any;
-            if (p && p.pitchDelta) map.setPitch(map.getPitch() + p.pitchDelta);
+            const {pitchDelta} = this.mousePitch.dragMove(e, point) || {};
+            if (pitchDelta) map.setPitch(map.getPitch() + pitchDelta);
+        }
+    }
+
+    moveTouch(e: TouchEvent, point: Point) {
+        const map = this.map;
+        const {bearingDelta} = this.touchRotate.dragMove(e, point) || {};
+        if (bearingDelta) map.setBearing(map.getBearing() + bearingDelta);
+        if (this.touchPitch) {
+            const {pitchDelta} = this.touchPitch.dragMove(e, point) || {};
+            if (pitchDelta) map.setPitch(map.getPitch() + pitchDelta);
         }
     }
 
@@ -189,8 +220,8 @@ class MouseRotateWrapper {
         const element = this.element;
         DOM.removeEventListener(element, 'mousedown', this.mousedown);
         DOM.removeEventListener(element, 'touchstart', this.touchstart, {passive: false});
-        DOM.removeEventListener(element, 'touchmove', this.touchmove);
-        DOM.removeEventListener(element, 'touchend', this.touchend);
+        DOM.removeEventListener(window, 'touchmove', this.touchmove, {passive: false});
+        DOM.removeEventListener(window, 'touchend', this.touchend);
         DOM.removeEventListener(element, 'touchcancel', this.reset);
         this.offTemp();
     }
@@ -199,59 +230,65 @@ class MouseRotateWrapper {
         DOM.enableDrag();
         DOM.removeEventListener(window, 'mousemove', this.mousemove);
         DOM.removeEventListener(window, 'mouseup', this.mouseup);
+        DOM.removeEventListener(window, 'touchmove', this.touchmove, {passive: false});
+        DOM.removeEventListener(window, 'touchend', this.touchend);
     }
 
-    mousedown(e: MouseEvent) {
-        this.down(extend({}, e, {ctrlKey: true, preventDefault: () => e.preventDefault()}), DOM.mousePos(this.element, e));
+    mousedown = (e: MouseEvent) => {
+        this.startMouse(extend({}, e, {ctrlKey: true, preventDefault: () => e.preventDefault()}), DOM.mousePos(this.element, e));
         DOM.addEventListener(window, 'mousemove', this.mousemove);
         DOM.addEventListener(window, 'mouseup', this.mouseup);
-    }
+    };
 
-    mousemove(e: MouseEvent) {
-        this.move(e, DOM.mousePos(this.element, e));
-    }
+    mousemove = (e: MouseEvent) => {
+        this.moveMouse(e, DOM.mousePos(this.element, e));
+    };
 
-    mouseup(e: MouseEvent) {
-        this.mouseRotate.mouseupWindow(e);
-        if (this.mousePitch) this.mousePitch.mouseupWindow(e);
+    mouseup = (e: MouseEvent) => {
+        this.mouseRotate.dragEnd(e);
+        if (this.mousePitch) this.mousePitch.dragEnd(e);
         this.offTemp();
-    }
+    };
 
-    touchstart(e: TouchEvent) {
+    touchstart = (e: TouchEvent) => {
         if (e.targetTouches.length !== 1) {
             this.reset();
         } else {
             this._startPos = this._lastPos = DOM.touchPos(this.element, e.targetTouches)[0];
-            this.down((({type: 'mousedown', button: 0, ctrlKey: true, preventDefault: () => e.preventDefault()} as any as MouseEvent)), this._startPos);
+            this.startTouch(e, this._startPos);
+            DOM.addEventListener(window, 'touchmove', this.touchmove, {passive: false});
+            DOM.addEventListener(window, 'touchend', this.touchend);
         }
-    }
+    };
 
-    touchmove(e: TouchEvent) {
+    touchmove = (e: TouchEvent) => {
         if (e.targetTouches.length !== 1) {
             this.reset();
         } else {
             this._lastPos = DOM.touchPos(this.element, e.targetTouches)[0];
-            this.move((({preventDefault: () => e.preventDefault()} as any as MouseEvent)), this._lastPos);
+            this.moveTouch(e, this._lastPos);
         }
-    }
+    };
 
-    touchend(e: TouchEvent) {
+    touchend = (e: TouchEvent) => {
         if (e.targetTouches.length === 0 &&
             this._startPos &&
             this._lastPos &&
             this._startPos.dist(this._lastPos) < this._clickTolerance) {
             this.element.click();
         }
-        this.reset();
-    }
-
-    reset() {
-        this.mouseRotate.reset();
-        if (this.mousePitch) this.mousePitch.reset();
         delete this._startPos;
         delete this._lastPos;
         this.offTemp();
-    }
-}
+    };
 
-export default NavigationControl;
+    reset = () => {
+        this.mouseRotate.reset();
+        if (this.mousePitch) this.mousePitch.reset();
+        this.touchRotate.reset();
+        if (this.touchPitch) this.touchPitch.reset();
+        delete this._startPos;
+        delete this._lastPos;
+        this.offTemp();
+    };
+}

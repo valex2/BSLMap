@@ -2,10 +2,14 @@ import {AlphaImage} from '../util/image';
 import {register} from '../util/web_worker_transfer';
 import potpack from 'potpack';
 
-import type {GlyphMetrics, StyleGlyph} from '../style/style_glyph';
+import type {GlyphMetrics} from '../style/style_glyph';
+import type {GetGlyphsResponse} from '../util/actor_messages';
 
 const padding = 1;
 
+/**
+ * A rectangle type with postion, width and height.
+ */
 export type Rect = {
     x: number;
     y: number;
@@ -13,26 +17,28 @@ export type Rect = {
     h: number;
 };
 
+/**
+ * The glyph's position
+ */
 export type GlyphPosition = {
     rect: Rect;
     metrics: GlyphMetrics;
 };
 
+/**
+ * The glyphs' positions
+ */
 export type GlyphPositions = {
     [_: string]: {
         [_: number]: GlyphPosition;
     };
 };
 
-export default class GlyphAtlas {
+export class GlyphAtlas {
     image: AlphaImage;
     positions: GlyphPositions;
 
-    constructor(stacks: {
-        [_: string]: {
-            [_: number]: StyleGlyph;
-        };
-    }) {
+    constructor(stacks: GetGlyphsResponse) {
         const positions = {};
         const bins = [];
 

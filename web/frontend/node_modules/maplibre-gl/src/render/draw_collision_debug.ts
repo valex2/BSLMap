@@ -1,21 +1,18 @@
-import type Painter from './painter';
-import type SourceCache from '../source/source_cache';
-import type StyleLayer from '../style/style_layer';
+import type {Painter} from './painter';
+import type {SourceCache} from '../source/source_cache';
+import type {StyleLayer} from '../style/style_layer';
 import type {OverscaledTileID} from '../source/tile_id';
-import type SymbolBucket from '../data/bucket/symbol_bucket';
-import DepthMode from '../gl/depth_mode';
-import StencilMode from '../gl/stencil_mode';
-import CullFaceMode from '../gl/cull_face_mode';
+import type {SymbolBucket} from '../data/bucket/symbol_bucket';
+import {DepthMode} from '../gl/depth_mode';
+import {StencilMode} from '../gl/stencil_mode';
+import {CullFaceMode} from '../gl/cull_face_mode';
 import {collisionUniformValues, collisionCircleUniformValues} from './program/collision_program';
-
 import {QuadTriangleArray, CollisionCircleLayoutArray} from '../data/array_types.g';
 import {collisionCircleLayout} from '../data/bucket/symbol_attributes';
-import SegmentVector from '../data/segment';
+import {SegmentVector} from '../data/segment';
 import {mat4} from 'gl-matrix';
-import VertexBuffer from '../gl/vertex_buffer';
-import IndexBuffer from '../gl/index_buffer';
-
-export default drawCollisionDebug;
+import {VertexBuffer} from '../gl/vertex_buffer';
+import {IndexBuffer} from '../gl/index_buffer';
 
 type TileBatch = {
     circleArray: Array<number>;
@@ -27,7 +24,7 @@ type TileBatch = {
 
 let quadTriangles: QuadTriangleArray;
 
-function drawCollisionDebug(painter: Painter, sourceCache: SourceCache, layer: StyleLayer, coords: Array<OverscaledTileID>, translate: [number, number], translateAnchor: 'map' | 'viewport', isText: boolean) {
+export function drawCollisionDebug(painter: Painter, sourceCache: SourceCache, layer: StyleLayer, coords: Array<OverscaledTileID>, isText: boolean) {
     const context = painter.context;
     const gl = context.gl;
     const program = painter.useProgram('collisionBox');
@@ -40,19 +37,14 @@ function drawCollisionDebug(painter: Painter, sourceCache: SourceCache, layer: S
         const tile = sourceCache.getTile(coord);
         const bucket: SymbolBucket = (tile.getBucket(layer) as any);
         if (!bucket) continue;
-        let posMatrix = coord.posMatrix;
-        if (translate[0] !== 0 || translate[1] !== 0) {
-            posMatrix = painter.translatePosMatrix(coord.posMatrix, tile, translate, translateAnchor);
-        }
         const buffers = isText ? bucket.textCollisionBox : bucket.iconCollisionBox;
         // Get collision circle data of this bucket
         const circleArray: Array<number> = bucket.collisionCircleArray;
         if (circleArray.length > 0) {
             // We need to know the projection matrix that was used for projecting collision circles to the screen.
-            // This might vary between buckets as the symbol placement is a continous process. This matrix is
+            // This might vary between buckets as the symbol placement is a continuous process. This matrix is
             // required for transforming points from previous screen space to the current one
             const invTransform = mat4.create();
-            const transform = posMatrix;
 
             mat4.mul(invTransform, bucket.placementInvProjMatrix, painter.transform.glCoordMatrix);
             mat4.mul(invTransform, invTransform, bucket.placementViewportMatrix);
@@ -60,7 +52,7 @@ function drawCollisionDebug(painter: Painter, sourceCache: SourceCache, layer: S
             tileBatches.push({
                 circleArray,
                 circleOffset,
-                transform,
+                transform: coord.posMatrix, // Ignore translation
                 invTransform,
                 coord
             });
@@ -68,16 +60,18 @@ function drawCollisionDebug(painter: Painter, sourceCache: SourceCache, layer: S
             circleCount += circleArray.length / 4;  // 4 values per circle
             circleOffset = circleCount;
         }
-        if (!buffers) continue;
+
+        // Draw collision boxes
+        if (!buffers) {
+            continue;
+        }
+
         program.draw(context, gl.LINES,
             DepthMode.disabled, StencilMode.disabled,
             painter.colorModeForRenderPass(),
             CullFaceMode.disabled,
-            collisionUniformValues(
-                posMatrix,
-                painter.transform,
-                tile),
-            painter.style.terrain && painter.style.terrain.getTerrainData(coord),
+            collisionUniformValues(painter.transform, coord.posMatrix),
+            painter.style.map.terrain && painter.style.map.terrain.getTerrainData(coord),
             layer.id, buffers.layoutVertexBuffer, buffers.indexBuffer,
             buffers.segments, null, painter.transform.zoom, null, null,
             buffers.collisionVertexBuffer);
@@ -135,7 +129,7 @@ function drawCollisionDebug(painter: Painter, sourceCache: SourceCache, layer: S
             painter.colorModeForRenderPass(),
             CullFaceMode.disabled,
             uniforms,
-            painter.style.terrain && painter.style.terrain.getTerrainData(batch.coord),
+            painter.style.map.terrain && painter.style.map.terrain.getTerrainData(batch.coord),
             layer.id,
             vertexBuffer,
             indexBuffer,

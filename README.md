@@ -1,4 +1,14 @@
-BSLMap Project – Architectural Vision
+# BSLMap Project – Interactive BSL-3/4 Laboratory Mapper
+
+## Quick Links
+
+- **Application**: [http://localhost:3003](http://localhost:3003) (when running locally)
+- **API Documentation**: [http://localhost:8000/api/docs](http://localhost:8000/api/docs)
+- **Backend API**: [http://localhost:8000](http://localhost:8000)
+
+## Project Overview
+
+This project aims to build a public-facing, interactive map of BSL-3/4 laboratories worldwide, enriched with evidence from scientific publications about what pathogens and research types are associated with each facility.
 
 This project aims to build a public-facing, interactive map of BSL-3/4 laboratories worldwide, enriched with evidence from scientific publications about what pathogens and research types are associated with each facility.
 
@@ -99,11 +109,54 @@ Backend (data + API)
 	•	/pathogens → pathogen taxonomy for filtering
 	•	/search?q=... → text search
 
-Frontend (interactive client)
-	•	Built with React + Vite (or Vue 3).
-	•	MapLibre GL integration for performant map rendering.
-	•	UI components:
-	•	Search bar (by institution, pathogen, country)
+## Development Setup
+
+### Prerequisites
+
+- Python 3.9+
+- Node.js 16+
+- Conda (recommended for Python environment management)
+
+### Environment Setup
+
+1. **Create and activate conda environment**:
+   ```bash
+   conda env create -f environment.yml
+   conda activate bslmap
+   ```
+
+2. **Install Python dependencies**:
+   ```bash
+   make install
+   ```
+
+3. **Install frontend dependencies**:
+   ```bash
+   make web-install
+   ```
+
+### Running the Application
+
+1. **Start the backend server**:
+   ```bash
+   make backend
+   ```
+
+2. **Start the frontend development server**:
+   ```bash
+   make frontend
+   ```
+
+   Or run both together:
+   ```bash
+   make web
+   ```
+
+## Frontend (Interactive Client)
+- Built with React + Vite
+- MapLibre GL integration for performant map rendering
+- UI Components:
+  - Search bar (by institution, pathogen, country)
 	•	Filters (BSL level, pathogen type, research type)
 	•	Sidebar detail panel with evidence and publication links
 	•	Mobile-friendly collapsible panels

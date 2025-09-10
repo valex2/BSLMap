@@ -1,22 +1,26 @@
-import {getVideo, ResourceType} from '../util/ajax';
+import {getVideo} from '../util/ajax';
+import {ResourceType} from '../util/request_manager';
 
-import ImageSource from './image_source';
+import {ImageSource} from './image_source';
 import rasterBoundsAttributes from '../data/raster_bounds_attributes';
-import SegmentVector from '../data/segment';
-import Texture from '../render/texture';
-import {ErrorEvent} from '../util/evented';
-import ValidationError from '../style-spec/error/validation_error';
+import {SegmentVector} from '../data/segment';
+import {Texture} from '../render/texture';
+import {Event, ErrorEvent} from '../util/evented';
+import {ValidationError} from '@maplibre/maplibre-gl-style-spec';
 
-import type Map from '../ui/map';
-import type Dispatcher from '../util/dispatcher';
+import type {Map} from '../ui/map';
+import type {Dispatcher} from '../util/dispatcher';
 import type {Evented} from '../util/evented';
-import type {VideoSourceSpecification} from '../style-spec/types.g';
+import type {VideoSourceSpecification} from '@maplibre/maplibre-gl-style-spec';
 
 /**
  * A data source containing video.
- * (See the [Style Specification](https://maplibre.org/maplibre-gl-js-docs/style-spec/#sources-video) for detailed documentation of options.)
+ * (See the [Style Specification](https://maplibre.org/maplibre-style-spec/#sources-video) for detailed documentation of options.)
+ *
+ * @group Sources
  *
  * @example
+ * ```ts
  * // add to map
  * map.addSource('some id', {
  *    type: 'video',
@@ -33,7 +37,7 @@ import type {VideoSourceSpecification} from '../style-spec/types.g';
  * });
  *
  * // update
- * var mySource = map.getSource('some id');
+ * let mySource = map.getSource('some id');
  * mySource.setCoordinates([
  *     [-76.54335737228394, 39.18579907229748],
  *     [-76.52803659439087, 39.1838364847587],
@@ -42,17 +46,19 @@ import type {VideoSourceSpecification} from '../style-spec/types.g';
  * ]);
  *
  * map.removeSource('some id');  // remove
- * @see [Add a video](https://maplibre.org/maplibre-gl-js-docs/example/video-on-a-map/)
+ * ```
+ * @see [Add a video](https://maplibre.org/maplibre-gl-js/docs/examples/video-on-a-map/)
+ *
+ * Note that when rendered as a raster layer, the layer's `raster-fade-duration` property will cause the video to fade in.
+ * This happens when playback is started, paused and resumed, or when the video's coordinates are updated. To avoid this behavior,
+ * set the layer's `raster-fade-duration` property to `0`.
  */
-class VideoSource extends ImageSource {
+export class VideoSource extends ImageSource {
     options: VideoSourceSpecification;
     urls: Array<string>;
     video: HTMLVideoElement;
     roundZoom: boolean;
 
-    /**
-     * @private
-     */
     constructor(id: string, options: VideoSourceSpecification, dispatcher: Dispatcher, eventedParent: Evented) {
         super(id, options, dispatcher, eventedParent);
         this.roundZoom = true;
@@ -60,7 +66,7 @@ class VideoSource extends ImageSource {
         this.options = options;
     }
 
-    load() {
+    async load() {
         this._loaded = false;
         const options = this.options;
 
@@ -68,28 +74,29 @@ class VideoSource extends ImageSource {
         for (const url of options.urls) {
             this.urls.push(this.map._requestManager.transformRequest(url, ResourceType.Source).url);
         }
-
-        getVideo(this.urls, (err, video) => {
+        try {
+            const video = await getVideo(this.urls);
             this._loaded = true;
-            if (err) {
-                this.fire(new ErrorEvent(err));
-            } else if (video) {
-                this.video = video;
-                this.video.loop = true;
-
-                // Start repainting when video starts playing. hasTransition() will then return
-                // true to trigger additional frames as long as the videos continues playing.
-                this.video.addEventListener('playing', () => {
-                    this.map.triggerRepaint();
-                });
-
-                if (this.map) {
-                    this.video.play();
-                }
-
-                this._finishLoading();
+            if (!video) {
+                return;
             }
-        });
+            this.video = video;
+            this.video.loop = true;
+
+            // Start repainting when video starts playing. hasTransition() will then return
+            // true to trigger additional frames as long as the videos continues playing.
+            this.video.addEventListener('playing', () => {
+                this.map.triggerRepaint();
+            });
+
+            if (this.map) {
+                this.video.play();
+            }
+
+            this._finishLoading();
+        } catch (err) {
+            this.fire(new ErrorEvent(err));
+        }
     }
 
     /**
@@ -112,7 +119,6 @@ class VideoSource extends ImageSource {
 
     /**
      * Sets playback to a timestamp, in seconds.
-     * @private
      */
     seek(seconds: number) {
         if (this.video) {
@@ -126,9 +132,9 @@ class VideoSource extends ImageSource {
     /**
      * Returns the HTML `video` element.
      *
-     * @returns {HTMLVideoElement} The HTML `video` element.
+     * @returns The HTML `video` element.
      */
-    getVideo() {
+    getVideo(): HTMLVideoElement {
         return this.video;
     }
 
@@ -144,15 +150,8 @@ class VideoSource extends ImageSource {
 
     /**
      * Sets the video's coordinates and re-renders the map.
-     *
-     * @method setCoordinates
-     * @instance
-     * @memberof VideoSource
-     * @returns {VideoSource} this
      */
-    // setCoordinates inherited from ImageSource
-
-    prepare() {
+    prepare(): this {
         if (Object.keys(this.tiles).length === 0 || this.video.readyState < 2) {
             return; // not enough data for current position
         }
@@ -176,16 +175,22 @@ class VideoSource extends ImageSource {
             gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, this.video);
         }
 
+        let newTilesLoaded = false;
         for (const w in this.tiles) {
             const tile = this.tiles[w];
             if (tile.state !== 'loaded') {
                 tile.state = 'loaded';
                 tile.texture = this.texture;
+                newTilesLoaded = true;
             }
+        }
+
+        if (newTilesLoaded) {
+            this.fire(new Event('data', {dataType: 'source', sourceDataType: 'idle', sourceId: this.id}));
         }
     }
 
-    serialize() {
+    serialize(): VideoSourceSpecification {
         return {
             type: 'video',
             urls: this.urls,
@@ -197,5 +202,3 @@ class VideoSource extends ImageSource {
         return this.video && !this.video.paused;
     }
 }
-
-export default VideoSource;

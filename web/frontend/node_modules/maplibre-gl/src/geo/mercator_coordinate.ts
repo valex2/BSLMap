@@ -1,16 +1,17 @@
-import LngLat, {earthRadius} from '../geo/lng_lat';
+import {LngLat, earthRadius} from '../geo/lng_lat';
 import type {LngLatLike} from '../geo/lng_lat';
+import {IMercatorCoordinate} from '@maplibre/maplibre-gl-style-spec';
 
 /*
  * The average circumference of the world in meters.
  */
-const earthCircumfrence = 2 * Math.PI * earthRadius; // meters
+const earthCircumference = 2 * Math.PI * earthRadius; // meters
 
 /*
  * The circumference at a line of latitude in meters.
  */
 function circumferenceAtLatitude(latitude: number) {
-    return earthCircumfrence * Math.cos(latitude * Math.PI / 180);
+    return earthCircumference * Math.cos(latitude * Math.PI / 180);
 }
 
 export function mercatorXfromLng(lng: number) {
@@ -44,9 +45,8 @@ export function altitudeFromMercatorZ(z: number, y: number) {
  *
  * At the equator the scale factor will be 1, which increases at higher latitudes.
  *
- * @param {number} lat Latitude
- * @returns {number} scale factor
- * @private
+ * @param lat - Latitude
+ * @returns scale factor
  */
 export function mercatorScale(lat: number) {
     return 1 / Math.cos(lat * Math.PI / 180);
@@ -56,6 +56,7 @@ export function mercatorScale(lat: number) {
  * A `MercatorCoordinate` object represents a projected three dimensional position.
  *
  * `MercatorCoordinate` uses the web mercator projection ([EPSG:3857](https://epsg.io/3857)) with slightly different units:
+ *
  * - the size of 1 unit is the width of the projected world instead of the "mercator meter"
  * - the origin of the coordinate space is at the north-west corner instead of the middle
  *
@@ -66,19 +67,24 @@ export function mercatorScale(lat: number) {
  *
  * The `z` dimension of `MercatorCoordinate` is conformal. A cube in the mercator coordinate space would be rendered as a cube.
  *
- * @param {number} x The x component of the position.
- * @param {number} y The y component of the position.
- * @param {number} z The z component of the position.
- * @example
- * var nullIsland = new maplibregl.MercatorCoordinate(0.5, 0.5, 0);
+ * @group Geography and Geometry
  *
- * @see [Add a custom style layer](https://maplibre.org/maplibre-gl-js-docs/example/custom-style-layer/)
+ * @example
+ * ```ts
+ * let nullIsland = new MercatorCoordinate(0.5, 0.5, 0);
+ * ```
+ * @see [Add a custom style layer](https://maplibre.org/maplibre-gl-js/docs/examples/custom-style-layer/)
  */
-class MercatorCoordinate {
+export class MercatorCoordinate implements IMercatorCoordinate {
     x: number;
     y: number;
     z: number;
 
+    /**
+     * @param x - The x component of the position.
+     * @param y - The y component of the position.
+     * @param z - The z component of the position.
+     */
     constructor(x: number, y: number, z: number = 0) {
         this.x = +x;
         this.y = +y;
@@ -88,14 +94,16 @@ class MercatorCoordinate {
     /**
      * Project a `LngLat` to a `MercatorCoordinate`.
      *
-     * @param {LngLatLike} lngLatLike The location to project.
-     * @param {number} altitude The altitude in meters of the position.
-     * @returns {MercatorCoordinate} The projected mercator coordinate.
+     * @param lngLatLike - The location to project.
+     * @param altitude - The altitude in meters of the position.
+     * @returns The projected mercator coordinate.
      * @example
-     * var coord = maplibregl.MercatorCoordinate.fromLngLat({ lng: 0, lat: 0}, 0);
+     * ```ts
+     * let coord = MercatorCoordinate.fromLngLat({ lng: 0, lat: 0}, 0);
      * coord; // MercatorCoordinate(0.5, 0.5, 0)
+     * ```
      */
-    static fromLngLat(lngLatLike: LngLatLike, altitude: number = 0) {
+    static fromLngLat(lngLatLike: LngLatLike, altitude: number = 0): MercatorCoordinate {
         const lngLat = LngLat.convert(lngLatLike);
 
         return new MercatorCoordinate(
@@ -107,10 +115,12 @@ class MercatorCoordinate {
     /**
      * Returns the `LngLat` for the coordinate.
      *
-     * @returns {LngLat} The `LngLat` object.
+     * @returns The `LngLat` object.
      * @example
-     * var coord = new maplibregl.MercatorCoordinate(0.5, 0.5, 0);
-     * var lngLat = coord.toLngLat(); // LngLat(0, 0)
+     * ```ts
+     * let coord = new MercatorCoordinate(0.5, 0.5, 0);
+     * let lngLat = coord.toLngLat(); // LngLat(0, 0)
+     * ```
      */
     toLngLat() {
         return new LngLat(
@@ -121,12 +131,14 @@ class MercatorCoordinate {
     /**
      * Returns the altitude in meters of the coordinate.
      *
-     * @returns {number} The altitude in meters.
+     * @returns The altitude in meters.
      * @example
-     * var coord = new maplibregl.MercatorCoordinate(0, 0, 0.02);
+     * ```ts
+     * let coord = new MercatorCoordinate(0, 0, 0.02);
      * coord.toAltitude(); // 6914.281956295339
+     * ```
      */
-    toAltitude() {
+    toAltitude(): number {
         return altitudeFromMercatorZ(this.z, this.y);
     }
 
@@ -136,13 +148,10 @@ class MercatorCoordinate {
      * For coordinates in real world units using meters, this naturally provides the scale
      * to transform into `MercatorCoordinate`s.
      *
-     * @returns {number} Distance of 1 meter in `MercatorCoordinate` units.
+     * @returns Distance of 1 meter in `MercatorCoordinate` units.
      */
-    meterInMercatorCoordinateUnits() {
+    meterInMercatorCoordinateUnits(): number {
         // 1 meter / circumference at equator in meters * Mercator projection scale factor at this latitude
-        return 1 / earthCircumfrence * mercatorScale(latFromMercatorY(this.y));
+        return 1 / earthCircumference * mercatorScale(latFromMercatorY(this.y));
     }
-
 }
-
-export default MercatorCoordinate;

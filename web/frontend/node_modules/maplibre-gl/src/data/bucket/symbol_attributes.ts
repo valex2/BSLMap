@@ -16,7 +16,8 @@ export const placementOpacityAttributes = createLayout([
 
 export const collisionVertexAttributes = createLayout([
     {name: 'a_placed', components: 2, type: 'Uint8'},
-    {name: 'a_shift', components: 2, type: 'Float32'}
+    {name: 'a_shift', components: 2, type: 'Float32'},
+    {name: 'a_box_real', components: 2, type: 'Int16'},
 ]);
 
 export const collisionBox = createLayout([
@@ -100,8 +101,9 @@ export const symbolInstance = createLayout([
     {type: 'Uint16', name: 'useRuntimeCollisionCircles'},
     {type: 'Uint32', name: 'crossTileID'},
     {type: 'Float32', name: 'textBoxScale'},
-    {type: 'Float32', components: 2, name: 'textOffset'},
     {type: 'Float32', name: 'collisionCircleDiameter'},
+    {type: 'Uint16', name: 'textAnchorOffsetStartIndex'},
+    {type: 'Uint16', name: 'textAnchorOffsetEndIndex'}
 ]);
 
 export const glyphOffset = createLayout([
@@ -112,4 +114,9 @@ export const lineVertex = createLayout([
     {type: 'Int16', name: 'x'},
     {type: 'Int16', name: 'y'},
     {type: 'Int16', name: 'tileUnitDistanceFromAnchor'}
+]);
+
+export const textAnchorOffset = createLayout([
+    {type: 'Uint16', name: 'textAnchor'},
+    {type: 'Float32', components: 2, name: 'textOffset'}
 ]);

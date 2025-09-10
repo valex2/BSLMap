@@ -2,12 +2,12 @@ import Point from '@mapbox/point-geometry';
 
 import {GLYPH_PBF_BORDER} from '../style/parse_glyph_pbf';
 
-import type Anchor from './anchor';
-import type {PositionedIcon, Shaping} from './shaping';
-import {SHAPING_DEFAULT_OFFSET} from './shaping';
+import type {Anchor} from './anchor';
+import type {Box, PositionedIcon, Shaping} from './shaping';
+import {SHAPING_DEFAULT_OFFSET, applyTextFit} from './shaping';
 import {IMAGE_PADDING} from '../render/image_atlas';
-import type SymbolStyleLayer from '../style/style_layer/symbol_style_layer';
-import type {Feature} from '../style-spec/expression';
+import type {SymbolStyleLayer} from '../style/style_layer/symbol_style_layer';
+import type {Feature} from '@maplibre/maplibre-gl-style-spec';
 import type {StyleImage} from '../style/style_image';
 import ONE_EM from './one_em';
 import {Rect} from '../render/glyph_atlas';
@@ -17,13 +17,11 @@ import {Rect} from '../render/glyph_atlas';
  *
  * The zoom range the glyph can be shown is defined by minScale and maxScale.
  *
- * @param tl The offset of the top left corner from the anchor.
- * @param tr The offset of the top right corner from the anchor.
- * @param bl The offset of the bottom left corner from the anchor.
- * @param br The offset of the bottom right corner from the anchor.
- * @param tex The texture coordinates.
- *
- * @private
+ * @param tl - The offset of the top left corner from the anchor.
+ * @param tr - The offset of the top right corner from the anchor.
+ * @param bl - The offset of the bottom left corner from the anchor.
+ * @param br - The offset of the bottom right corner from the anchor.
+ * @param tex - The texture coordinates.
  */
 export type SymbolQuad = {
     tl: Point;
@@ -53,7 +51,6 @@ const border = IMAGE_PADDING;
 
 /**
  * Create the quads used for rendering an icon.
- * @private
  */
 export function getIconQuads(
     shapedIcon: PositionedIcon,
@@ -68,8 +65,12 @@ export function getIconQuads(
     const imageWidth = image.paddedRect.w - 2 * border;
     const imageHeight = image.paddedRect.h - 2 * border;
 
-    const iconWidth = shapedIcon.right - shapedIcon.left;
-    const iconHeight = shapedIcon.bottom - shapedIcon.top;
+    let icon: Box = {
+        x1: shapedIcon.left,
+        y1: shapedIcon.top,
+        x2: shapedIcon.right,
+        y2: shapedIcon.bottom
+    };
 
     const stretchX = image.stretchX || [[0, imageWidth]];
     const stretchY = image.stretchY || [[0, imageHeight]];
@@ -91,28 +92,39 @@ export function getIconQuads(
 
     if (image.content && hasIconTextFit) {
         const content = image.content;
+        const contentWidth = content[2] - content[0];
+        const contentHeight = content[3] - content[1];
+        // Constrict content area to fit target aspect ratio
+        if (image.textFitWidth || image.textFitHeight) {
+            icon = applyTextFit(shapedIcon);
+        }
         stretchOffsetX = sumWithinRange(stretchX, 0, content[0]);
         stretchOffsetY = sumWithinRange(stretchY, 0, content[1]);
         stretchContentWidth = sumWithinRange(stretchX, content[0], content[2]);
         stretchContentHeight = sumWithinRange(stretchY, content[1], content[3]);
         fixedOffsetX = content[0] - stretchOffsetX;
         fixedOffsetY = content[1] - stretchOffsetY;
-        fixedContentWidth = content[2] - content[0] - stretchContentWidth;
-        fixedContentHeight = content[3] - content[1] - stretchContentHeight;
+        fixedContentWidth = contentWidth - stretchContentWidth;
+        fixedContentHeight = contentHeight - stretchContentHeight;
     }
+
+    const iconLeft = icon.x1;
+    const iconTop = icon.y1;
+    const iconWidth = icon.x2 - iconLeft;
+    const iconHeight = icon.y2 - iconTop;
 
     const makeBox = (left, top, right, bottom) => {
 
-        const leftEm = getEmOffset(left.stretch - stretchOffsetX, stretchContentWidth, iconWidth, shapedIcon.left);
+        const leftEm = getEmOffset(left.stretch - stretchOffsetX, stretchContentWidth, iconWidth, iconLeft);
         const leftPx = getPxOffset(left.fixed - fixedOffsetX, fixedContentWidth, left.stretch, stretchWidth);
 
-        const topEm = getEmOffset(top.stretch - stretchOffsetY, stretchContentHeight, iconHeight, shapedIcon.top);
+        const topEm = getEmOffset(top.stretch - stretchOffsetY, stretchContentHeight, iconHeight, iconTop);
         const topPx = getPxOffset(top.fixed - fixedOffsetY, fixedContentHeight, top.stretch, stretchHeight);
 
-        const rightEm = getEmOffset(right.stretch - stretchOffsetX, stretchContentWidth, iconWidth, shapedIcon.left);
+        const rightEm = getEmOffset(right.stretch - stretchOffsetX, stretchContentWidth, iconWidth, iconLeft);
         const rightPx = getPxOffset(right.fixed - fixedOffsetX, fixedContentWidth, right.stretch, stretchWidth);
 
-        const bottomEm = getEmOffset(bottom.stretch - stretchOffsetY, stretchContentHeight, iconHeight, shapedIcon.top);
+        const bottomEm = getEmOffset(bottom.stretch - stretchOffsetY, stretchContentHeight, iconHeight, iconTop);
         const bottomPx = getPxOffset(bottom.fixed - fixedOffsetY, fixedContentHeight, bottom.stretch, stretchHeight);
 
         const tl = new Point(leftEm, topEm);
@@ -217,7 +229,6 @@ function getPxOffset(fixedOffset, fixedSize, stretchOffset, stretchSize) {
 
 /**
  * Create the quads used for rendering a text label.
- * @private
  */
 export function getGlyphQuads(
     anchor: Anchor,
@@ -278,10 +289,12 @@ export function getGlyphQuads(
                 builtInOffset = [0, 0];
             }
 
+            const textureScale = positionedGlyph.metrics.isDoubleResolution ? 2 : 1;
+
             const x1 = (positionedGlyph.metrics.left - rectBuffer) * positionedGlyph.scale - halfAdvance + builtInOffset[0];
             const y1 = (-positionedGlyph.metrics.top - rectBuffer) * positionedGlyph.scale + builtInOffset[1];
-            const x2 = x1 + textureRect.w * positionedGlyph.scale / pixelRatio;
-            const y2 = y1 + textureRect.h * positionedGlyph.scale / pixelRatio;
+            const x2 = x1 + textureRect.w / textureScale * positionedGlyph.scale / pixelRatio;
+            const y2 = y1 + textureRect.h / textureScale * positionedGlyph.scale / pixelRatio;
 
             const tl = new Point(x1, y1);
             const tr = new Point(x2, y1);

@@ -1,68 +1,71 @@
-import {getJSON, getImage, ResourceType} from '../util/ajax';
+import {GetResourceResponse, getJSON} from '../util/ajax';
+import {ImageRequest} from '../util/image_request';
+import {ResourceType} from '../util/request_manager';
 
-import browser from '../util/browser';
-import {RGBAImage} from '../util/image';
+import {browser} from '../util/browser';
+import {coerceSpriteToArray} from '../util/style';
 
-import type {StyleImage} from './style_image';
+import type {SpriteSpecification} from '@maplibre/maplibre-gl-style-spec';
+import type {SpriteJSON, StyleImage} from './style_image';
 import type {RequestManager} from '../util/request_manager';
-import type {Callback} from '../types/callback';
-import type {Cancelable} from '../types/cancelable';
 
-export default function loadSprite(
-    baseURL: string,
+export type LoadSpriteResult = {
+    [spriteName: string]: {
+        [id: string]: StyleImage;
+    };
+}
+
+export function normalizeSpriteURL(url: string, format: string, extension: string): string {
+    const split = url.split('?');
+    split[0] += `${format}${extension}`;
+    return split.join('?');
+}
+
+export async function loadSprite(
+    originalSprite: SpriteSpecification,
     requestManager: RequestManager,
     pixelRatio: number,
-    callback: Callback<{[_: string]: StyleImage}>
-): Cancelable {
-    let json: any, image, error;
+    abortController: AbortController,
+): Promise<LoadSpriteResult> {
+    const spriteArray = coerceSpriteToArray(originalSprite);
     const format = pixelRatio > 1 ? '@2x' : '';
 
-    let jsonRequest = getJSON(requestManager.transformRequest(requestManager.normalizeSpriteURL(baseURL, format, '.json'), ResourceType.SpriteJSON), (err?: Error | null, data?: any | null) => {
-        jsonRequest = null;
-        if (!error) {
-            error = err;
-            json = data;
-            maybeComplete();
-        }
-    });
+    const jsonsMap: {[id: string]: Promise<GetResourceResponse<SpriteJSON>>} = {};
+    const imagesMap: {[id: string]: Promise<GetResourceResponse<HTMLImageElement | ImageBitmap>>} = {};
 
-    let imageRequest = getImage(requestManager.transformRequest(requestManager.normalizeSpriteURL(baseURL, format, '.png'), ResourceType.SpriteImage), (err, img) => {
-        imageRequest = null;
-        if (!error) {
-            error = err;
-            image = img;
-            maybeComplete();
-        }
-    });
+    for (const {id, url} of spriteArray) {
+        const jsonRequestParameters = requestManager.transformRequest(normalizeSpriteURL(url, format, '.json'), ResourceType.SpriteJSON);
+        jsonsMap[id] = getJSON<SpriteJSON>(jsonRequestParameters, abortController);
 
-    function maybeComplete() {
-        if (error) {
-            callback(error);
-        } else if (json && image) {
-            const imageData = browser.getImageData(image);
-            const result = {};
+        const imageRequestParameters = requestManager.transformRequest(normalizeSpriteURL(url, format, '.png'), ResourceType.SpriteImage);
+        imagesMap[id] = ImageRequest.getImage(imageRequestParameters, abortController);
+    }
 
-            for (const id in json) {
-                const {width, height, x, y, sdf, pixelRatio, stretchX, stretchY, content} = json[id];
-                const data = new RGBAImage({width, height});
-                RGBAImage.copy(imageData, data, {x, y}, {x: 0, y: 0}, {width, height});
-                result[id] = {data, pixelRatio, sdf, stretchX, stretchY, content};
-            }
+    await Promise.all([...Object.values(jsonsMap), ...Object.values(imagesMap)]);
+    return doOnceCompleted(jsonsMap, imagesMap);
+}
 
-            callback(null, result);
+/**
+ * @param jsonsMap - JSON data map
+ * @param imagesMap - image data map
+ */
+async function doOnceCompleted(
+    jsonsMap:{[id: string]: Promise<GetResourceResponse<SpriteJSON>>},
+    imagesMap:{[id: string]: Promise<GetResourceResponse<HTMLImageElement | ImageBitmap>>}): Promise<LoadSpriteResult> {
+
+    const result = {} as {[spriteName: string]: {[id: string]: StyleImage}};
+    for (const spriteName in jsonsMap) {
+        result[spriteName] = {};
+
+        const context = browser.getImageCanvasContext((await imagesMap[spriteName]).data);
+        const json = (await jsonsMap[spriteName]).data;
+
+        for (const id in json) {
+            const {width, height, x, y, sdf, pixelRatio, stretchX, stretchY, content, textFitWidth, textFitHeight} = json[id];
+            const spriteData = {width, height, x, y, context};
+            result[spriteName][id] = {data: null, pixelRatio, sdf, stretchX, stretchY, content, textFitWidth, textFitHeight, spriteData};
         }
     }
 
-    return {
-        cancel() {
-            if (jsonRequest) {
-                jsonRequest.cancel();
-                jsonRequest = null;
-            }
-            if (imageRequest) {
-                imageRequest.cancel();
-                imageRequest = null;
-            }
-        }
-    };
+    return result;
 }

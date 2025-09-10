@@ -1,343 +1,249 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
-import maplibregl, { NavigationControl, ScaleControl } from 'maplibre-gl';
+import { useEffect, useRef, useState, useMemo } from 'react';
+import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Box, Typography, CircularProgress } from '@mui/material';
 
-// Debug logging
-console.log('MapLibre GL initialized');
-
-export const BSL_COLORS = {
-  'BSL-2': '#4CAF50', // Green
-  'BSL-3': '#FFC107', // Amber
-  'BSL-4': '#F44336', // Red
-  'Unknown': '#9E9E9E', // Grey
+const baseStyle = {
+  version: 8,
+  glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
+  sources: {
+    'osm-tiles': {
+      type: 'raster',
+      tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+      tileSize: 256,
+      attribution: '© OpenStreetMap contributors',
+    },
+  },
+  layers: [{ id: 'osm-tiles', type: 'raster', source: 'osm-tiles' }],
 };
 
-const MapComponent = ({ data, onLabSelect, selectedLabId }) => {
-  const mapContainer = useRef(null);
-  const map = useRef(null);
-  const [mapLoaded, setMapLoaded] = useState(false);
+const LAB_SOURCE_ID = 'labs';
+const LAB_CIRCLE_LAYER_ID = 'labs-circle';
+const LAB_LABEL_LAYER_ID = 'labs-labels';
+const LAB_SELECTED_LAYER_ID = 'labs-selected-outline';
 
-  // Initialize map
+export default function MapComponent({ data, onLabSelect, selectedLabId }) {
+  const containerRef = useRef(null);
+  const mapRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+
+  // Keep a stable, validated GeoJSON value (MapLibre dislikes changing object identities unnecessarily)
+  const geojson = useMemo(() => {
+    if (!data || data.type !== 'FeatureCollection') return { type: 'FeatureCollection', features: [] };
+    return data;
+  }, [data]);
+
+  // INIT (once)
   useEffect(() => {
-    if (map.current) {
-      console.log('Map already initialized');
-      return;
-    }
-    
-    if (!mapContainer.current) {
-      console.error('Map container not found');
-      return;
-    }
+    if (!containerRef.current || mapRef.current) return;
 
-    console.log('Initializing map with MapLibre GL version:', maplibregl.version);
-    
-    // Check if maplibregl is available
-    if (!maplibregl) {
-      console.error('maplibregl not found');
-      return;
-    }
-    
-    try {
-      // Create a new map instance
-      const mapInstance = new maplibregl.Map({
-        container: mapContainer.current,
-        style: 'https://demotiles.maplibre.org/style.json',
-        center: [0, 20],
-        zoom: 2,
-        maxZoom: 18,
-        minZoom: 1,
-        maxBounds: [-180, -85, 180, 85],
-        interactive: true,
-        attributionControl: false
-      });
+    const map = new maplibregl.Map({
+      container: containerRef.current,
+      style: baseStyle,
+      center: [0, 20],
+      zoom: 1.8,
+      attributionControl: false,
+      cooperativeGestures: true,
+    });
 
-      mapInstance.on('load', () => {
-        console.log('Map loaded successfully');
-        setMapLoaded(true);
-      });
+    mapRef.current = map;
 
-      mapInstance.on('error', (e) => {
-        console.error('Map error:', e.error);
-      });
+    // Controls
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    map.addControl(new maplibregl.ScaleControl({ maxWidth: 120, unit: 'metric' }));
 
-      // Add controls
-      mapInstance.addControl(new NavigationControl(), 'top-right');
-      mapInstance.addControl(new ScaleControl());
-      
-      map.current = mapInstance;
-      console.log('Map instance created');
+    // Basic error surface (prevents silent failures = blue square)
+    map.on('error', (e) => {
+      // eslint-disable-next-line no-console
+      console.error('[MapLibre error]', e?.error || e);
+    });
 
-      return () => {
-        console.log('Cleaning up map...');
-        if (map.current) {
-          try {
-            if (map.current.loaded()) {
-              map.current.off();
-              map.current.remove();
-            }
-          } catch (e) {
-            console.error('Error during map cleanup:', e);
-          } finally {
-            map.current = null;
-          }
-        }
-      };
-    } catch (error) {
-      console.error('Failed to initialize map:', error);
-    }
-  }, []);
+    map.once('load', () => setLoaded(true));
 
-  // Add data source and layers when map is loaded and data changes
-  useEffect(() => {
-    if (!map.current) {
-      console.log('Map not initialized');
-      return;
-    }
-    
-    if (!mapLoaded) {
-      console.log('Map not loaded yet');
-      return;
-    }
-    
-    if (!data) {
-      console.log('No data available');
-      return;
-    }
-    
-    console.log('Processing data for map:', data);
-    const sourceId = 'labs';
-    const source = map.current.getSource(sourceId);
+    // Resize when container changes
+    const ro = new ResizeObserver(() => {
+      // Avoid spam; MapLibre handles most resize, but this helps inside flex layouts
+      if (!map.isMoving()) {
+        map.resize();
+      }
+    });
+    ro.observe(containerRef.current);
 
-    if (source) {
-      source.setData(data);
-    } else {
-      // Add the source and layers
-      map.current.addSource(sourceId, {
-        type: 'geojson',
-        data,
-        cluster: true,
-        clusterMaxZoom: 14,
-        clusterRadius: 50,
-      });
-
-      // Add cluster circles
-      map.current.addLayer({
-        id: 'clusters',
-        type: 'circle',
-        source: sourceId,
-        filter: ['has', 'point_count'],
-        paint: {
-          'circle-color': [
-            'step',
-            ['get', 'point_count'],
-            '#51bbd6',
-            10,
-            '#f1f075',
-            30,
-            '#f28cb1'
-          ],
-          'circle-radius': [
-            'step',
-            ['get', 'point_count'],
-            20,
-            10,
-            25,
-            30,
-            30
-          ]
-        }
-      });
-
-      // Add cluster count labels
-      map.current.addLayer({
-        id: 'cluster-count',
-        type: 'symbol',
-        source: sourceId,
-        filter: ['has', 'point_count'],
-        layout: {
-          'text-field': '{point_count_abbreviated}',
-          'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-          'text-size': 12
-        }
-      });
-
-      // Add unclustered points
-      map.current.addLayer({
-        id: 'unclustered-point',
-        type: 'circle',
-        source: sourceId,
-        filter: ['!', ['has', 'point_count']],
-        paint: {
-          'circle-color': [
-            'match',
-            ['get', 'bsl_level'],
-            'BSL-2', BSL_COLORS['BSL-2'],
-            'BSL-3', BSL_COLORS['BSL-3'],
-            'BSL-4', BSL_COLORS['BSL-4'],
-            BSL_COLORS['Unknown']
-          ],
-          'circle-radius': 8,
-          'circle-stroke-width': 2,
-          'circle-stroke-color': '#fff',
-          'circle-opacity': 0.8
-        }
-      });
-
-      // Add a layer for the selected point
-      map.current.addLayer({
-        id: 'selected-point',
-        type: 'circle',
-        source: sourceId,
-        filter: ['==', 'id', ''], // Initially empty
-        paint: {
-          'circle-radius': 12,
-          'circle-color': '#00f',
-          'circle-stroke-width': 2,
-          'circle-stroke-color': '#fff',
-          'circle-opacity': 1
-        }
-      });
-
-      // Change the cursor to a pointer when the mouse is over a point
-      map.current.on('mouseenter', 'unclustered-point', () => {
-        map.current.getCanvas().style.cursor = 'pointer';
-      });
-
-      // Change it back to a pointer when it leaves
-      map.current.on('mouseleave', 'unclustered-point', () => {
-        map.current.getCanvas().style.cursor = '';
-      });
-
-      // Handle click on points
-      map.current.on('click', 'unclustered-point', (e) => {
-        const feature = e.features[0];
-        onLabSelect(feature.properties);
-      });
-
-      // Handle click on clusters
-      map.current.on('click', 'clusters', (e) => {
-        const features = map.current.queryRenderedFeatures(e.point, {
-          layers: ['clusters']
-        });
-        
-        const clusterId = features[0].properties.cluster_id;
-        const source = map.current.getSource(sourceId);
-        
-        source.getClusterExpansionZoom(
-          clusterId,
-          (err, zoom) => {
-            if (err) return;
-            
-            map.current.easeTo({
-              center: features[0].geometry.coordinates,
-              zoom: zoom,
-              duration: 500
-            });
-          }
-        );
-      });
-    }
-
-    // Update selected point filter when selectedLabId changes
-    if (selectedLabId) {
-      map.current.setFilter('selected-point', ['==', 'id', selectedLabId]);
-    } else {
-      map.current.setFilter('selected-point', ['==', 'id', '']);
-    }
-
-    // Cleanup
     return () => {
-      if (map.current) {
-        // Only remove layers and source if they exist
-        if (map.current.getLayer('clusters')) {
-          map.current.removeLayer('clusters');
-        }
-        if (map.current.getLayer('cluster-count')) {
-          map.current.removeLayer('cluster-count');
-        }
-        if (map.current.getLayer('unclustered-point')) {
-          map.current.removeLayer('unclustered-point');
-        }
-        if (map.current.getLayer('selected-point')) {
-          map.current.removeLayer('selected-point');
-        }
-        if (map.current.getSource(sourceId)) {
-          map.current.removeSource(sourceId);
-        }
+      ro.disconnect();
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
       }
     };
-  }, [mapLoaded, data, selectedLabId, onLabSelect]);
+  }, []);
 
-  // Fit bounds when data changes
+  // DATA (add once, then setData thereafter)
   useEffect(() => {
-    if (!map.current || !mapLoaded || !data || !data.features || data.features.length === 0) return;
+    if (!loaded || !mapRef.current) return;
+    const map = mapRef.current;
 
-    if (data.features.length === 1 && selectedLabId) {
-      // If we have a single selected lab, center on it
-      const [lng, lat] = data.features[0].geometry.coordinates;
-      map.current.flyTo({
-        center: [lng, lat],
-        zoom: 10,
-        duration: 1000
-      });
-    } else if (data.features.length > 0) {
-      // Otherwise, fit bounds to show all features
-      const bounds = new maplibregl.LngLatBounds();
-      data.features.forEach(feature => {
-        bounds.extend(feature.geometry.coordinates);
-      });
-      
-      // Add some padding
-      const padding = {
-        top: 50,
-        bottom: 50,
-        left: 50,
-        right: 50
-      };
-      
-      map.current.fitBounds(bounds, {
-        padding: padding,
-        duration: 1000
-      });
+    // If source exists, just setData
+    const existing = map.getSource(LAB_SOURCE_ID);
+    if (existing) {
+      try {
+        existing.setData(geojson);
+      } catch (e) {
+        console.warn('[labs] setData failed; recreating source', e);
+        if (map.getLayer(LAB_LABEL_LAYER_ID)) map.removeLayer(LAB_LABEL_LAYER_ID);
+        if (map.getLayer(LAB_SELECTED_LAYER_ID)) map.removeLayer(LAB_SELECTED_LAYER_ID);
+        if (map.getLayer(LAB_CIRCLE_LAYER_ID)) map.removeLayer(LAB_CIRCLE_LAYER_ID);
+        if (map.getSource(LAB_SOURCE_ID)) map.removeSource(LAB_SOURCE_ID);
+      }
     }
-  }, [mapLoaded, data, selectedLabId]);
+
+    // (Re)create source/layers if needed
+    if (!map.getSource(LAB_SOURCE_ID)) {
+      map.addSource(LAB_SOURCE_ID, {
+        type: 'geojson',
+        data: geojson,
+        // If your features include a stable `id` (string/number) at top-level or in properties,
+        // you can promote it for faster filters. If your id lives in properties.id, use:
+        // promoteId: 'id', // (enable if your FEATURES have top-level "id")
+      });
+
+      map.addLayer({
+        id: LAB_CIRCLE_LAYER_ID,
+        type: 'circle',
+        source: LAB_SOURCE_ID,
+        paint: {
+          'circle-radius': [
+            'interpolate',
+            ['linear'],
+            ['to-number', ['get', 'evidence_count'], 1],
+            1, 3,
+            1000, 10,
+          ],
+          'circle-color': '#1f77b4',
+          'circle-opacity': 0.75,
+          'circle-stroke-width': 1,
+          'circle-stroke-color': '#ffffff',
+        },
+      });
+
+      map.addLayer({
+        id: LAB_LABEL_LAYER_ID,
+        type: 'symbol',
+        source: LAB_SOURCE_ID,
+        layout: {
+          'text-field': ['coalesce', ['get', 'institution'], ''],
+          'text-size': 11,
+          'text-offset': [0, 1.2],
+          'text-anchor': 'top',
+          'text-optional': true,
+        },
+        paint: {
+          'text-color': '#0b132b',
+          'text-halo-color': '#ffffff',
+          'text-halo-width': 1,
+        },
+      });
+
+      // Selected outline layer (drawn atop)
+      map.addLayer({
+        id: LAB_SELECTED_LAYER_ID,
+        type: 'circle',
+        source: LAB_SOURCE_ID,
+        paint: {
+          'circle-radius': [
+            'interpolate',
+            ['linear'],
+            ['to-number', ['get', 'evidence_count'], 1],
+            1, 5,
+            1000, 12,
+          ],
+          'circle-color': 'transparent',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ff6b00',
+        },
+        filter: ['==', ['get', 'id'], '__none__'], // will be updated below
+      });
+    } else {
+      // If source already existed, ensure layers exist (in case of prior removal)
+      if (!map.getLayer(LAB_CIRCLE_LAYER_ID) || !map.getLayer(LAB_LABEL_LAYER_ID)) {
+        // Remove any remnants then re-add cleanly
+        if (map.getLayer(LAB_LABEL_LAYER_ID)) map.removeLayer(LAB_LABEL_LAYER_ID);
+        if (map.getLayer(LAB_SELECTED_LAYER_ID)) map.removeLayer(LAB_SELECTED_LAYER_ID);
+        if (map.getLayer(LAB_CIRCLE_LAYER_ID)) map.removeLayer(LAB_CIRCLE_LAYER_ID);
+        // Recurse once to rebuild layers
+        map.removeSource(LAB_SOURCE_ID);
+        // Trigger rebuild on next effect tick
+        setTimeout(() => {
+          if (mapRef.current) {
+            mapRef.current.addSource(LAB_SOURCE_ID, { type: 'geojson', data: geojson });
+            // Layers will be added on next render cycle
+          }
+        }, 0);
+      }
+    }
+
+    // Click -> onLabSelect(feature)
+    const handleClick = (e) => {
+      const f = map.queryRenderedFeatures(e.point, { layers: [LAB_CIRCLE_LAYER_ID] })?.[0];
+      if (f && typeof onLabSelect === 'function') onLabSelect(f);
+    };
+    map.on('click', handleClick);
+
+    return () => {
+      map.off('click', handleClick);
+      // Note: we do NOT remove layers/sources here to avoid thrash; cleanup happens on unmount
+    };
+  }, [loaded, geojson, onLabSelect]);
+
+  // Selected highlight filter
+  useEffect(() => {
+    if (!loaded || !mapRef.current) return;
+    const map = mapRef.current;
+    if (!map.getLayer(LAB_SELECTED_LAYER_ID)) return;
+
+    // Try matching by top-level feature id if present, else by properties.id, else by institution
+    let filter = ['==', ['get', 'id'], '__none__'];
+    if (selectedLabId != null) {
+      filter = [
+        'any',
+        ['==', ['id'], selectedLabId],                 // top-level feature id
+        ['==', ['get', 'id'], selectedLabId],          // properties.id
+        ['==', ['get', 'institution'], selectedLabId], // fallback: institution string
+      ];
+    }
+    map.setFilter(LAB_SELECTED_LAYER_ID, filter);
+  }, [loaded, selectedLabId]);
 
   return (
     <Box
-      ref={mapContainer}
+      ref={containerRef}
       sx={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: '#f0f0f0',
-        '& .mapboxgl-canvas-container': {
-          width: '100%',
-          height: '100%',
-        },
+        width: '100%',
+        height: '100%',
+        minHeight: 500,
+        position: 'relative',
+        // Ensure the canvas actually fills its parent in flex/grid layouts
+        '& .maplibregl-canvas': { width: '100% !important', height: '100% !important' },
       }}
     >
-      {!mapLoaded && (
+      {!loaded && (
         <Box
           sx={{
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            gap: 1,
             zIndex: 1,
+            pointerEvents: 'none',
           }}
         >
           <CircularProgress />
-          <Typography variant="body1" sx={{ mt: 2 }}>
-            Loading map...
-          </Typography>
+          <Typography variant="body2">Loading map…</Typography>
         </Box>
       )}
     </Box>
   );
-};
-
-export default MapComponent;
+}

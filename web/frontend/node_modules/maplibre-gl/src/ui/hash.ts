@@ -1,36 +1,25 @@
-import {bindAll} from '../util/util';
-import throttle from '../util/throttle';
+import {throttle} from '../util/throttle';
 
-import type Map from './map';
+import type {Map} from './map';
 
-/*
+/**
  * Adds the map's position to its page's location hash.
  * Passed as an option to the map object.
  *
- * @returns {Hash} `this`
+ * @group Markers and Controls
  */
-class Hash {
+export class Hash {
     _map: Map;
-    _updateHash: () => ReturnType<typeof setTimeout>;
     _hashName: string;
 
     constructor(hashName?: string | null) {
         this._hashName = hashName && encodeURIComponent(hashName);
-        bindAll([
-            '_getCurrentHash',
-            '_onHashChange',
-            '_updateHash'
-        ], this);
-
-        // Mobile Safari doesn't allow updating the hash more than 100 times per 30 seconds.
-        this._updateHash = throttle(this._updateHashUnthrottled.bind(this), 30 * 1000 / 100);
     }
 
-    /*
+    /**
      * Map element to listen for coordinate changes
      *
-     * @param {Object} map
-     * @returns {Hash} `this`
+     * @param map - The map object
      */
     addTo(map: Map) {
         this._map = map;
@@ -39,15 +28,14 @@ class Hash {
         return this;
     }
 
-    /*
+    /**
      * Removes hash
-     *
-     * @returns {Popup} `this`
      */
     remove() {
         removeEventListener('hashchange', this._onHashChange, false);
         this._map.off('moveend', this._updateHash);
         clearTimeout(this._updateHash());
+        this._removeHash();
 
         delete this._map;
         return this;
@@ -95,7 +83,7 @@ class Hash {
         return `#${hash}`;
     }
 
-    _getCurrentHash() {
+    _getCurrentHash = () => {
         // Get the current hash from location, stripped from its number sign
         const hash = window.location.hash.replace('#', '');
         if (this._hashName) {
@@ -111,9 +99,9 @@ class Hash {
             return (keyval ? keyval[1] || '' : '').split('/');
         }
         return hash.split('/');
-    }
+    };
 
-    _onHashChange() {
+    _onHashChange = () => {
         const loc = this._getCurrentHash();
         if (loc.length >= 3 && !loc.some(v => isNaN(v))) {
             const bearing = this._map.dragRotate.isEnabled() && this._map.touchZoomRotate.isEnabled() ? +(loc[3] || 0) : this._map.getBearing();
@@ -126,20 +114,40 @@ class Hash {
             return true;
         }
         return false;
-    }
+    };
 
-    _updateHashUnthrottled() {
+    _updateHashUnthrottled = () => {
         // Replace if already present, else append the updated hash string
-        const location = window.location.href.replace(/(#.+)?$/, this.getHashString());
-        try {
-            window.history.replaceState(window.history.state, null, location);
-        } catch (SecurityError) {
-            // IE11 does not allow this if the page is within an iframe created
-            // with iframe.contentWindow.document.write(...).
-            // https://github.com/mapbox/mapbox-gl-js/issues/7410
+        const location = window.location.href.replace(/(#.*)?$/, this.getHashString());
+        window.history.replaceState(window.history.state, null, location);
+    };
+
+    _removeHash = () => {
+        const currentHash = this._getCurrentHash();
+        if (currentHash.length === 0) {
+            return;
         }
-    }
+        const baseHash = currentHash.join('/');
+        let targetHash = baseHash;
+        if (targetHash.split('&').length > 0) {
+            targetHash = targetHash.split('&')[0]; // #3/1/2&foo=bar -> #3/1/2
+        }
+        if (this._hashName) {
+            targetHash = `${this._hashName}=${baseHash}`;
+        }
+        let replaceString = window.location.hash.replace(targetHash, '');
+        if (replaceString.startsWith('#&')) {
+            replaceString = replaceString.slice(0, 1) + replaceString.slice(2);
+        } else if (replaceString === '#') {
+            replaceString = '';
+        }
+        let location = window.location.href.replace(/(#.+)?$/, replaceString);
+        location = location.replace('&&', '&');
+        window.history.replaceState(window.history.state, null, location);
+    };
 
+    /**
+     * Mobile Safari doesn't allow updating the hash more than 100 times per 30 seconds.
+     */
+    _updateHash: () => ReturnType<typeof setTimeout> = throttle(this._updateHashUnthrottled, 30 * 1000 / 100);
 }
-
-export default Hash;
