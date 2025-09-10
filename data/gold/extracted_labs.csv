@@ -1,0 +1,962 @@
+pmid,lab_name,institution,country,city,latitude,longitude,bsl_level_inferred,pathogens,research_types,ppp_or_gof,confidence,source_pmid
+40924481,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40924481
+40919024,,National Institute of Allergy and Infectious Diseases,,,,,,IDP,experimental,False,0.9,40919024
+40901926,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40901926
+40901824,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40901824
+40894567,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40894567
+40872867,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40872867
+40872863,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40872863
+40868984,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40868984
+40864723,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40864723
+40865529,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,human; monkeypox,False,0.9,40865529
+40852134,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,40852134
+40838594,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40838594
+40835030,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,40835030
+40816277,,National Institute of Allergy and Infectious Diseases,,,,,,H3-N terminus,experimental,False,0.9,40816277
+40812207,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40812207
+40804163,,National Institute of Allergy and Infectious Diseases,,,,,,STING-associated vasculopathy,experimental,False,0.9,40804163
+40802690,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,40802690
+40795882,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40795882
+40782819,,National Institute of Allergy and Infectious Diseases,,,,,,EV-D68,experimental,False,0.9,40782819
+40779639,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,40779639
+40779451,,National Institute of Allergy and Infectious Diseases,,,,,,BCG,experimental,False,0.9,40779451
+40768601,,National Institute of Allergy and Infectious Diseases,,,,,,A/H1N1,experimental,False,0.9,40768601
+40766360,,National Institute of Allergy and Infectious Diseases,,,,,,H5 clade 2.3.4.4b,experimental,False,0.9,40766360
+40751436,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40751436
+40750617,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1; H5N1,experimental,False,0.9,40750617
+40721512,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40721512
+40709330,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40709330
+40707428,,National Institute of Allergy and Infectious Diseases,,,,,,MERS-CoV,merbecovirus,False,0.9,40707428
+40701746,,National Institute of Allergy and Infectious Diseases,,,,,,SUDV,intranasal,False,0.9,40701746
+40701496,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40701496
+40687705,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,40687705
+40680114,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,40680114
+40675980,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,40675980
+40632654,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40632654
+40631099,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40631099
+40624061,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,40624061
+40611900,,National Institute of Allergy and Infectious Diseases,,,,,,MERS-CoV,hDPP4,False,0.9,40611900
+40608426,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40608426
+40599489,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40599489
+40593808,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40593808
+40593471,,National Institute of Allergy and Infectious Diseases,,,,,,HPAI-CoV-2,experimental,False,0.9,40593471
+40592451,,National Institute of Allergy and Infectious Diseases,,,,,,H18N11; SARS-CoV-2,experimental,False,0.9,40592451
+40585204,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40585204
+40573979,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40573979
+40568176,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40568176
+40568173,,National Institute of Allergy and Infectious Diseases,,,,,,HA stem antigen,human; macaque,False,0.9,40568173
+40568123,,National Institute of Allergy and Infectious Diseases,,,,,,HA,experimental,False,0.9,40568123
+40568098,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40568098
+40531973,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40531973
+40498855,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40498855
+40497015,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,40497015
+40492736,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,40492736
+40491485,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,human immunodeficiency virus,False,0.9,40491485
+40483362,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,40483362
+40475854,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40475854
+40475132,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40475132
+40461945,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40461945
+40461490,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40461490
+40447644,,National Institute of Allergy and Infectious Diseases,,,,,,CCHFV,experimental,False,0.9,40447644
+40440413,,National Institute of Allergy and Infectious Diseases,,,,,,DCM,clinical,False,0.9,40440413
+40437102,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40437102
+40434773,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40434773
+40432103,,National Institute of Allergy and Infectious Diseases,,,,,,Bacillus influenzae,experimental,False,0.9,40432103
+40431651,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40431651
+40410375,,National Institute of Allergy and Infectious Diseases,,,,,,VN1203,experimental,False,0.9,40410375
+40402577,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,clinical,False,0.9,40402577
+40399314,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,experimental,False,0.9,40399314
+40394759,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40394759
+40379380,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV; MARV,filovirus,False,0.9,40379380
+40368926,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40368926
+40340168,,National Institute of Allergy and Infectious Diseases,,,,,,mpox,experimental,False,0.9,40340168
+40333087,,National Institute of Allergy and Infectious Diseases,,,,,,H5N1,experimental,False,0.9,40333087
+40330596,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM,experimental,False,0.9,40330596
+40328820,,National Institute of Allergy and Infectious Diseases,,,,,,SUDV,experimental,False,0.9,40328820
+40321290,,National Institute of Allergy and Infectious Diseases,,,,,,Plasmodium falciparum,clinical,False,0.9,40321290
+40321289,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40321289
+40305570,,National Institute of Allergy and Infectious Diseases,,,,,,HIV-1,experimental,False,0.9,40305570
+40301359,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,40301359
+40298376,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,40298376
+40297751,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40297751
+40295878,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40295878
+40295821,,National Institute of Allergy and Infectious Diseases,,,,,,MERS-CoV,experimental,False,0.9,40295821
+40291761,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.8,40291761
+40263387,,National Institute of Allergy and Infectious Diseases,,,,,,H1ssF,experimental,False,0.9,40263387
+40258004,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40258004
+40256048,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40256048
+40244690,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40244690
+40239067,,National Institute of Allergy and Infectious Diseases,,,,,,Tecovirimat,clinical,False,0.9,40239067
+40228023,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,experimental,False,0.9,40228023
+40222009,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40222009
+40213436,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40213436
+40202253,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM,experimental,False,0.9,40202253
+40194662,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,40194662
+40178760,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM syndrome,experimental,False,0.9,40178760
+40168094,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40168094
+40139568,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1 virus,clinical,False,0.9,40139568
+40133326,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,40133326
+40124489,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40124489
+40118946,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40118946
+40112805,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,40112805
+40107003,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40107003
+40106432,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,40106432
+40100819,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40100819
+40086141,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40086141
+40081398,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,40081398
+40074901,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,40074901
+40044048,,National Institute of Allergy and Infectious Diseases,,,,,,COVID,experimental,False,0.9,40044048
+40034696,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40034696
+40027781,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40027781
+40023164,,National Institute of Allergy and Infectious Diseases,,,,,,H2-naive individuals,experimental,False,0.9,40023164
+40005201,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,40005201
+39970958,,National Institute of Allergy and Infectious Diseases,,,,,,Pichinde virus,experimental,False,0.9,39970958
+39968620,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39968620
+39960062,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39960062
+39950273,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,phytochemicals,False,0.9,39950273
+39947217,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39947217
+39947075,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,39947075
+39931577,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39931577
+39929974,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,39929974
+39922466,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39922466
+39917335,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39917335
+39902315,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39902315
+39900911,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,39900911
+39894227,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39894227
+39887251,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39887251
+39884302,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39884302
+39899769,,National Institute of Allergy and Infectious Diseases,,,,,,APDS1,APDS1,False,0.9,39899769
+39867363,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39867363
+39852525,,National Institute of Allergy and Infectious Diseases,,,,,,Marburgvirus,filovirus,False,0.9,39852525
+39850579,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39850579
+39847599,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39847599
+39844430,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39844430
+39840037,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39840037
+39836844,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39836844
+39824819,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39824819
+39824796,,National Institute of Allergy and Infectious Diseases,,,,,,Mpox; Zaire-1979 005,experimental,False,0.9,39824796
+39814072,,National Institute of Allergy and Infectious Diseases,,,,,,HPAI,human,False,0.9,39814072
+39810077,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39810077
+39809744,,National Institute of Allergy and Infectious Diseases,,,,,,H5N1,experimental,False,0.9,39809744
+39803542,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39803542
+39799119,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39799119
+39798434,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39798434
+39794319,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39794319
+39774938,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39774938
+39767449,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39767449
+39747435,,National Institute of Allergy and Infectious Diseases,,,,,,H5N1,experimental,False,0.9,39747435
+39742506,,National Institute of Allergy and Infectious Diseases,,,,,,H3; H7; H10,experimental,False,0.9,39742506
+39719481,,National Institute of Allergy and Infectious Diseases,,,,,,monkeypox virus,experimental,False,0.9,39719481
+39719110,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39719110
+39718991,,National Institute of Allergy and Infectious Diseases,,,,,,"EBOV GP1,2",experimental,False,0.9,39718991
+39715748,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39715748
+39715280,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39715280
+39697187,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39697187
+39695262,,National Institute of Allergy and Infectious Diseases,,,,,,PECOS,experimental,False,0.9,39695262
+39680623,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV and MARV,experimental,False,0.9,39680623
+39679349,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39679349
+39677750,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,human influenza,False,0.9,39677750
+39666753,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39666753
+39642242,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39642242
+39607906,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39607906
+39605478,,National Institute of Allergy and Infectious Diseases,,,,,,Herpesviridae,experimental,False,0.9,39605478
+39605425,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39605425
+39602262,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39602262
+39599507,,National Institute of Allergy and Infectious Diseases,,,,,,JAK-1; JAK-2,clinical,False,0.9,39599507
+39585640,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39585640
+39585633,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,39585633
+39585614,,National Institute of Allergy and Infectious Diseases,,,,,,Marburg virus,experimental,False,0.9,39585614
+39580804,,National Institute of Allergy and Infectious Diseases,,,,,,IGHV1-69,experimental,False,0.9,39580804
+39565753,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39565753
+39560427,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39560427
+39559990,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus disease,experimental,False,0.9,39559990
+39541970,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39541970
+39540114,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39540114
+39533045,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39533045
+39499953,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39499953
+39489282,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39489282
+39479769,,National Institute of Allergy and Infectious Diseases,,,,,,MG-CLS,clinical,False,0.8,39479769
+39478781,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39478781
+39475850,,National Institute of Allergy and Infectious Diseases,,,,,,STAT1; STAT3,,False,0.9,39475850
+39471070,,National Institute of Allergy and Infectious Diseases,,,,,,SCV2,experimental,False,0.9,39471070
+39466844,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,39466844
+39459907,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39459907
+39440808,,National Institute of Allergy and Infectious Diseases,,,,,,RSV,chimera; chimeric; chimeric-like,False,0.9,39440808
+39440405,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39440405
+39434874,,National Institute of Allergy and Infectious Diseases,,,,,,mf; mf-derived extracellular vesicles (EVs),experimental,False,0.9,39434874
+39426633,,National Institute of Allergy and Infectious Diseases,,,,,,TB,experimental,False,0.9,39426633
+39426387,,National Institute of Allergy and Infectious Diseases,,,,,,monkeypox virus clade I,experimental,False,0.9,39426387
+39400063,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39400063
+39394249,,National Institute of Allergy and Infectious Diseases,,,,,,EVD,filovirus vaccine,False,0.9,39394249
+39392378,,National Institute of Allergy and Infectious Diseases,,,,,,MIS-C,experimental,False,0.9,39392378
+39383243,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39383243
+39380156,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39380156
+39379249,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,clinical,False,0.9,39379249
+39374605,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus disease,experimental,False,0.9,39374605
+39372768,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39372768
+39372767,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,intranasal vaccines,False,0.9,39372767
+39372734,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39372734
+39369964,,National Institute of Allergy and Infectious Diseases,,,,,,JAK-STAT,clinical,False,0.9,39369964
+39369791,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,39369791
+39365051,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39365051
+39345583,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39345583
+39339853,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39339853
+39333882,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39333882
+39326422,,National Institute of Allergy and Infectious Diseases,,,,,,RSV,experimental,False,0.9,39326422
+39325506,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39325506
+39324144,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39324144
+39318203,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39318203
+39296387,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1; H3N2,experimental,False,0.9,39296387
+39271151,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39271151
+39269963,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39269963
+39269490,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39269490
+39264207,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39264207
+39261482,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39261482
+39240113,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,39240113
+39236733,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39236733
+39236707,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,clinical,False,0.9,39236707
+39235945,,National Institute of Allergy and Infectious Diseases,,,,,,H5N1,human immunodeficiency virus,False,0.9,39235945
+39227514,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39227514
+39219510,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39219510
+39194245,,National Institute of Allergy and Infectious Diseases,,,,,,HIV-1,experimental,False,0.9,39194245
+39174553,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39174553
+39162510,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39162510
+39147143,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39147143
+39142660,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39142660
+39136237,,National Institute of Allergy and Infectious Diseases,,,,,,Eosinophils,experimental,False,0.9,39136237
+39134521,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39134521
+39126087,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,39126087
+39109178,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39109178
+39106267,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39106267
+39081315,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39081315
+39079210,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,39079210
+39078193,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,39078193
+39072316,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39072316
+39070798,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39070798
+39053480,,National Institute of Allergy and Infectious Diseases,,,,,,MERS-CoV-2,experimental,False,0.9,39053480
+39052716,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,39052716
+39045384,,National Institute of Allergy and Infectious Diseases,,,,,,RSV,,False,0.9,39045384
+39041439,,National Institute of Allergy and Infectious Diseases,,,,,,HIV-infected kidney transplant recipients with COVID-19,experimental,False,0.9,39041439
+39023559,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,39023559
+39018444,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,39018444
+39013430,,National Institute of Allergy and Infectious Diseases,,,,,,H5N1,experimental,False,0.9,39013430
+38996010,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38996010
+38981485,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38981485
+38978558,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38978558
+38976733,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38976733
+38973065,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38973065
+38964362,,National Institute of Allergy and Infectious Diseases,,,,,,Nipah virus,clinical,False,0.9,38964362
+38950078,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38950078
+38939745,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38939745
+38932404,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38932404
+38912755,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38912755
+38901738,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38901738
+38883977,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,38883977
+38873606,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38873606
+38861571,,National Institute of Allergy and Infectious Diseases,,,,,,TAFV,experimental,False,0.9,38861571
+38861030,,National Institute of Allergy and Infectious Diseases,,,,,,STAT3 GOF,human disease,False,0.9,38861030
+38842160,,National Institute of Allergy and Infectious Diseases,,,,,,Nipah virus,experimental,False,0.9,38842160
+38839047,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,38839047
+38834971,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,38834971
+38815595,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,clinical,False,0.9,38815595
+38802413,,National Institute of Allergy and Infectious Diseases,,,,,,H7N9,experimental,False,0.9,38802413
+38798323,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38798323
+38786655,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38786655
+38775275,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38775275
+38761816,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38761816
+38760932,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38760932
+38754917,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38754917
+38749479,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38749479
+38748773,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38748773
+38724757,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,experimental,False,0.9,38724757
+38717904,,National Institute of Allergy and Infectious Diseases,,,,,,H2N2,experimental,False,0.9,38717904
+38712124,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38712124
+38687064,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38687064
+38670948,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38670948
+38670113,,National Institute of Allergy and Infectious Diseases,,,,,,IAV-CoV-2,experimental,False,0.9,38670113
+38659819,,National Institute of Allergy and Infectious Diseases,,,,,,HIV-1,experimental,False,0.9,38659819
+38657001,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38657001
+38651899,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38651899
+38640835,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38640835
+38637500,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,experimental,False,0.9,38637500
+38630846,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,38630846
+38618895,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,clinical,False,0.9,38618895
+38598658,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38598658
+38585846,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38585846
+38562814,,National Institute of Allergy and Infectious Diseases,,,,,,PLAID,cold urticaria,False,0.9,38562814
+38553525,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,38553525
+38552795,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38552795
+38543923,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38543923
+38537255,,National Institute of Allergy and Infectious Diseases,,,,,,H7N9,experimental,False,0.9,38537255
+38517951,,National Institute of Allergy and Infectious Diseases,,,,,,HA stem virus,experimental,False,0.9,38517951
+38512815,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,38512815
+38507462,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38507462
+38487996,,National Institute of Allergy and Infectious Diseases,,,,,,SUDV,experimental,False,0.9,38487996
+38467646,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38467646
+38460680,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,38460680
+38458870,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38458870
+38455906,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38455906
+38430907,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38430907
+38423018,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38423018
+38416804,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38416804
+38415923,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38415923
+38411453,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,experimental,False,0.9,38411453
+38408357,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38408357
+38406184,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38406184
+38405760,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,38405760
+38402303,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38402303
+38392905,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,experimental,False,0.9,38392905
+38376212,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38376212
+38372392,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38372392
+38349163,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,38349163
+38344971,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38344971
+38332733,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38332733
+38315950,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38315950
+38313289,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38313289
+38313285,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38313285
+38291024,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38291024
+38261786,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38261786
+38257761,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38257761
+38250850,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38250850
+38245545,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38245545
+38243064,,National Institute of Allergy and Infectious Diseases,,,,,,MIS-C,experimental,False,0.9,38243064
+40295685,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40295685
+38214525,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,38214525
+38196658,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,38196658
+38196653,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38196653
+38196595,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,38196595
+40295780,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,40295780
+38193710,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38193710
+38187726,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38187726
+38187006,,National Institute of Allergy and Infectious Diseases,,,,,,HBoV1,,False,0.9,38187006
+38185798,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM syndrome,clinical,False,0.9,38185798
+38177625,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,38177625
+38172512,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38172512
+38172101,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38172101
+38170789,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38170789
+38169842,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,38169842
+38154666,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,38154666
+38144450,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38144450
+38140590,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,38140590
+38135024,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,38135024
+38116577,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38116577
+38111750,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38111750
+38110611,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38110611
+38105137,,National Institute of Allergy and Infectious Diseases,,,,,,H7N9,experimental,False,0.9,38105137
+38096058,,National Institute of Allergy and Infectious Diseases,,,,,,HA,experimental,False,0.9,38096058
+38096052,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,38096052
+38091944,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38091944
+38088981,,National Institute of Allergy and Infectious Diseases,,,,,,H3N2,experimental,False,0.9,38088981
+38086794,,National Institute of Allergy and Infectious Diseases,,,,,,Mycobacterium bovis BCG,clinical,False,0.8,38086794
+38076895,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38076895
+38071106,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38071106
+38057617,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38057617
+38042809,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38042809
+38023544,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38023544
+38019806,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,experimental,False,0.9,38019806
+38019656,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,clinical trials,False,0.9,38019656
+38009954,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,38009954
+38005840,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,38005840
+37995376,,National Institute of Allergy and Infectious Diseases,,,,,,MPXV,experimental,False,0.9,37995376
+37990257,,National Institute of Allergy and Infectious Diseases,,,,,,sJIA,experimental,False,0.9,37990257
+37986867,,National Institute of Allergy and Infectious Diseases,,,,,,H7N9,experimental,False,0.9,37986867
+37985664,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37985664
+37976940,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37976940
+37976351,,National Institute of Allergy and Infectious Diseases,,,,,,ISCLS,clinical,False,0.5,37976351
+37950044,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37950044
+37948759,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37948759
+37944586,,National Institute of Allergy and Infectious Diseases,,,,,,ECV-19,experimental,False,0.9,37944586
+37938781,,National Institute of Allergy and Infectious Diseases,,,,,,NIK/RELB; NIK/LOF,experimental,False,0.9,37938781
+37936652,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37936652
+37904956,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37904956
+37896806,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37896806
+37891462,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37891462
+37883246,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,human; virus,False,0.9,37883246
+37880247,,National Institute of Allergy and Infectious Diseases,,,,,,Marburg and Ebola filoviruses,experimental,False,0.9,37880247
+37877800,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37877800
+37868648,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37868648
+37852960,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37852960
+37851826,,National Institute of Allergy and Infectious Diseases,,,,,,H5N1,experimental,False,0.9,37851826
+37849404,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37849404
+37849396,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37849396
+37845170,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37845170
+37826865,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37826865
+37824621,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37824621
+37821447,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37821447
+37818801,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37818801
+37811983,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37811983
+37808679,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37808679
+37794071,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-1,experimental,False,0.9,37794071
+37790938,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37790938
+37790295,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37790295
+37788501,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37788501
+37788496,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37788496
+37788495,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37788495
+37781590,,National Institute of Allergy and Infectious Diseases,,,,,,H2N2,clinical,False,0.9,37781590
+37771593,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37771593
+37769878,,National Institute of Allergy and Infectious Diseases,,,,,,PLCG2,experimental,False,0.9,37769878
+37766115,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37766115
+37757827,,National Institute of Allergy and Infectious Diseases,,,,,,RAG-deficient patient microbiomes,experimental,False,0.9,37757827
+37756530,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37756530
+37751477,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37751477
+37744331,,National Institute of Allergy and Infectious Diseases,,,,,,SCV2,experimental,False,0.9,37744331
+37738833,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37738833
+37735592,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37735592
+37731485,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,37731485
+37726484,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37726484
+37724870,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37724870
+37720210,,National Institute of Allergy and Infectious Diseases,,,,,,Mtb,experimental,False,0.9,37720210
+37716365,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37716365
+37684136,,National Institute of Allergy and Infectious Diseases,,,,,,HPAI-CoV-2,experimental,False,0.9,37684136
+37669225,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37669225
+37667052,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37667052
+37659419,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37659419
+37652048,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,experimental,False,0.9,37652048
+37651206,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37651206
+37650237,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37650237
+37650234,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37650234
+37650230,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37650230
+37640860,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37640860
+37640189,,National Institute of Allergy and Infectious Diseases,,,,,,monkeypox virus,experimental,False,0.9,37640189
+37639457,,National Institute of Allergy and Infectious Diseases,,,,,,H1 HA,experimental,False,0.9,37639457
+37637232,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37637232
+37620337,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37620337
+37616377,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,37616377
+37596837,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37596837
+37592878,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,37592878
+37578898,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37578898
+37572656,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37572656
+37566678,,National Institute of Allergy and Infectious Diseases,,,,,,Nippostrongylus brasiliensis,experimental,False,0.9,37566678
+37562721,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37562721
+37562033,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37562033
+37561579,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM,experimental,False,0.9,37561579
+37561027,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37561027
+37553406,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37553406
+37549397,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,37549397
+37544326,,National Institute of Allergy and Infectious Diseases,,,,,,SUDAN EBOV,experimental,False,0.9,37544326
+37534607,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37534607
+37533854,,National Institute of Allergy and Infectious Diseases,,,,,,MODS,experimental,False,0.9,37533854
+37529105,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37529105
+37515136,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37515136
+37513779,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,,False,0.9,37513779
+37506197,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37506197
+37502977,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37502977
+37496612,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37496612
+37491352,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37491352
+37484839,,National Institute of Allergy and Infectious Diseases,,,,,,MIS-A,experimental,False,0.9,37484839
+37483285,,National Institute of Allergy and Infectious Diseases,,,,,,RMS,clinical,False,0.9,37483285
+37481623,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37481623
+37477943,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV-Makona,human primate,False,0.9,37477943
+37474251,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37474251
+37474155,,National Institute of Allergy and Infectious Diseases,,,,,,VSV-EBOV,experimental,False,0.9,37474155
+37470396,,National Institute of Allergy and Infectious Diseases,,,,,,TAFV,experimental,False,0.9,37470396
+37461674,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37461674
+37451878,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37451878
+37451877,,National Institute of Allergy and Infectious Diseases,,,,,,H1; H3; HBY,,False,0.9,37451877
+37440409,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37440409
+37433788,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37433788
+37428933,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37428933
+37428480,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37428480
+37425811,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,37425811
+37406177,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37406177
+37399385,,National Institute of Allergy and Infectious Diseases,,,,,,HCoV-OC43; SARS-CoV-2,experimental,False,0.9,37399385
+37398491,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37398491
+37398105,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37398105
+37395646,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37395646
+37391481,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37391481
+37386692,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.8,37386692
+37383244,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,37383244
+37356729,,National Institute of Allergy and Infectious Diseases,,,,,,Nipah virus,experimental,False,0.9,37356729
+37352333,,National Institute of Allergy and Infectious Diseases,,,,,,B/HPIV3/S-6P,experimental,False,0.9,37352333
+37352146,,National Institute of Allergy and Infectious Diseases,,,,,,LLOV,experimental,False,0.9,37352146
+37351456,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,37351456
+37349033,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,experimental,False,0.9,37349033
+37348869,,National Institute of Allergy and Infectious Diseases,,,,,,Reston virus,experimental,False,0.9,37348869
+37348524,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,clinical,False,0.9,37348524
+37339711,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37339711
+37333174,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37333174
+37330602,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37330602
+37327781,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37327781
+37292995,,National Institute of Allergy and Infectious Diseases,,,,,,HA,experimental,False,0.9,37292995
+37292967,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,37292967
+37290042,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37290042
+37279544,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV Kikwit,experimental,False,0.9,37279544
+37264688,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37264688
+37256972,,National Institute of Allergy and Infectious Diseases,,,,,,DPM,experimental,False,0.9,37256972
+37255467,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37255467
+37207002,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1pdm virus,experimental,False,0.9,37207002
+37206623,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37206623
+37205592,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37205592
+37191544,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37191544
+37186162,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37186162
+37184659,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37184659
+37184428,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,37184428
+37179012,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37179012
+37150240,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37150240
+37145991,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37145991
+37133586,,National Institute of Allergy and Infectious Diseases,,,,,,ICL,clinical,False,0.9,37133586
+37133343,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM,human immunodeficiency virus (HIV); human immunodeficiency virus (HIV); human immunodeficiency virus (HIV); human immunodeficiency virus (HIV),False,0.9,37133343
+37131659,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37131659
+37102262,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,sexual,False,0.9,37102262
+37099295,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37099295
+37090605,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37090605
+37075129,,National Institute of Allergy and Infectious Diseases,,,,,,H1ssF,experimental,False,0.9,37075129
+37075126,,National Institute of Allergy and Infectious Diseases,,,,,,H1ssF,experimental,False,0.9,37075126
+37075079,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37075079
+37068595,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37068595
+37045860,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,translational,False,0.9,37045860
+37045841,,National Institute of Allergy and Infectious Diseases,,,,,,WHIM Syndrome,clinical,False,0.9,37045841
+37036397,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37036397
+37036346,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,37036346
+37034641,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,clinical,False,0.9,37034641
+37034419,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,37034419
+37026003,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37026003
+37022144,,National Institute of Allergy and Infectious Diseases,,,,,,mpox,experimental,False,0.9,37022144
+37018390,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37018390
+37013538,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37013538
+37003305,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37003305
+37001649,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37001649
+37000420,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,37000420
+36997521,,National Institute of Allergy and Infectious Diseases,,,,,,HIV-1; HIV-2; HIV-3,experimental,False,0.9,36997521
+36993426,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36993426
+36973267,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36973267
+36966905,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36966905
+36966617,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36966617
+36966070,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36966070
+36963628,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36963628
+36961465,,National Institute of Allergy and Infectious Diseases,,,,,,MIS-C,experimental,False,0.9,36961465
+36960051,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,36960051
+36943870,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36943870
+36942560,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36942560
+36941155,,National Institute of Allergy and Infectious Diseases,,,,,,M-001,experimental,False,0.9,36941155
+36932063,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,36932063
+36928598,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36928598
+36928087,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36928087
+36899062,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36899062
+36895286,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36895286
+36884218,,National Institute of Allergy and Infectious Diseases,,,,,,STAT6,genetic studies,False,0.9,36884218
+36875204,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36875204
+36870874,,National Institute of Allergy and Infectious Diseases,,,,,,Coronavirus Vaccines Research and Development (R&amp;D) Roadmap (CVR),,False,0.9,36870874
+36866590,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36866590
+36865993,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36865993
+36862871,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36862871
+36861341,,National Institute of Allergy and Infectious Diseases,,,,,,HIV,experimental,False,0.9,36861341
+36857394,,National Institute of Allergy and Infectious Diseases,,,,,,swine; swine-origin; swine-origin-origin,experimental; genetic,False,0.9,36857394
+36851550,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,Ebola virus,False,0.9,36851550
+36824860,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36824860
+36809306,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36809306
+36801946,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36801946
+36798171,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36798171
+36795841,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36795841
+36787354,,National Institute of Allergy and Infectious Diseases,,,,,,mpo,human-to-human transmission,False,0.9,36787354
+36778849,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36778849
+36778273,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,36778273
+36774693,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,36774693
+36755544,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36755544
+36739878,,National Institute of Allergy and Infectious Diseases,,,,,,SUDV,experimental,False,0.9,36739878
+36728413,,National Institute of Allergy and Infectious Diseases,,,,,,B. bronchiseptica nasal colonization,,False,0.5,36728413
+36725433,,National Institute of Allergy and Infectious Diseases,,,,,,ZEBOV,experimental,False,0.9,36725433
+36723411,,National Institute of Allergy and Infectious Diseases,,,,,,FluMos-v1,experimental,False,0.9,36723411
+36722473,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36722473
+36713413,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36713413
+36709074,,National Institute of Allergy and Infectious Diseases,,,,,,Marburg virus,experimental,False,0.9,36709074
+36702771,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1pdm-like virus,experimental,False,0.9,36702771
+36697369,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,positive-strand RNA viruses,False,0.9,36697369
+36695611,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36695611
+36689221,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36689221
+36683765,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36683765
+36681898,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36681898
+36658109,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36658109
+36655200,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36655200
+36654682,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36654682
+36634620,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36634620
+36631564,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36631564
+36625657,,National Institute of Allergy and Infectious Diseases,,,,,,"229E, OC43, NL63, and HKU1",experimental,False,0.9,36625657
+36617594,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36617594
+36602804,,National Institute of Allergy and Infectious Diseases,,,,,,MIS-C,experimental,False,0.9,36602804
+36598976,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,clinical,False,0.9,36598976
+36592667,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,humanized mouse,False,0.8,36592667
+36589893,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,36589893
+36583642,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36583642
+36582240,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36582240
+36574583,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36574583
+36574296,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36574296
+36561185,,National Institute of Allergy and Infectious Diseases,,,,,,B/HPIV3/S-2P,experimental,False,0.9,36561185
+36557713,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36557713
+36546480,,National Institute of Allergy and Infectious Diseases,,,,,,JAK1GOF,genetic studies of JAK1GOF in humans,False,0.9,36546480
+36543806,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,36543806
+36536106,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36536106
+36532656,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36532656
+36528815,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36528815
+36528644,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36528644
+36523415,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36523415
+36523408,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36523408
+36517603,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36517603
+36517467,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36517467
+36516269,,National Institute of Allergy and Infectious Diseases,,,,,,ChAd3,experimental,False,0.9,36516269
+36516078,,National Institute of Allergy and Infectious Diseases,,,,,,Zaire Ebola virus disease,experimental,False,0.9,36516078
+36513665,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36513665
+36509288,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36509288
+36508878,,National Institute of Allergy and Infectious Diseases,,,,,,Nipah virus,experimental,False,0.9,36508878
+36506838,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36506838
+36482505,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36482505
+36454813,,National Institute of Allergy and Infectious Diseases,,,,,,VOCs,vaccines,False,0.9,36454813
+36448028,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36448028
+36447243,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36447243
+36446385,,National Institute of Allergy and Infectious Diseases,,,,,,T&#xa0;cell large granular lymphocytic leukemia (T-LGL),experimental,False,0.9,36446385
+36435936,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36435936
+36423629,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36423629
+36423101,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36423101
+36423030,,National Institute of Allergy and Infectious Diseases,,,,,,MARV Angola,experimental,False,0.9,36423030
+36417366,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36417366
+36415460,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36415460
+36411391,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36411391
+36399927,,National Institute of Allergy and Infectious Diseases,,,,,,SAVI,experimental,False,0.9,36399927
+36399566,,National Institute of Allergy and Infectious Diseases,,,,,,Omicron BA.1 and BA.2 VOCs,,False,0.9,36399566
+36382536,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36382536
+36380767,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36380767
+36378426,,National Institute of Allergy and Infectious Diseases,,,,,,IKBKB,experimental,False,0.9,36378426
+36373096,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36373096
+36360782,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36360782
+36356586,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36356586
+36356572,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,36356572
+36353642,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36353642
+36352100,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,36352100
+36347257,,National Institute of Allergy and Infectious Diseases,,,,,,COV-89-22,convalescent donors,False,0.9,36347257
+36345429,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36345429
+36336785,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36336785
+36324810,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36324810
+36324802,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36324802
+36322769,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36322769
+36302375,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36302375
+36300895,,National Institute of Allergy and Infectious Diseases,,,,,,SB; SARS-CoV-2,experimental,False,0.9,36300895
+36298782,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36298782
+36298683,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36298683
+36298460,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36298460
+36289232,,National Institute of Allergy and Infectious Diseases,,,,,,H. pylori ferritin,experimental,False,0.9,36289232
+36274085,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36274085
+36268708,,National Institute of Allergy and Infectious Diseases,,,,,,Herpesviridae,experimental,False,0.9,36268708
+36265510,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36265510
+36264642,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36264642
+36263161,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36263161
+36263071,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36263071
+36263064,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36263064
+36263060,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36263060
+36257313,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36257313
+36248851,,National Institute of Allergy and Infectious Diseases,,,,,,HA-split-subunit-vaccine; HA-split-subunit-vaccine-quadrivalent,experimental,False,0.9,36248851
+36228738,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36228738
+36227594,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36227594
+36224218,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36224218
+36222529,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36222529
+36215331,,National Institute of Allergy and Infectious Diseases,,,,,,VACV,vaccinia virus,False,0.9,36215331
+36203551,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36203551
+36200701,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36200701
+36197988,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36197988
+36195473,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36195473
+36192702,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36192702
+36189212,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36189212
+36184587,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36184587
+36183296,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36183296
+36182704,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36182704
+36179680,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36179680
+36172122,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36172122
+36146818,,National Institute of Allergy and Infectious Diseases,,,,,,monkeypox,experimental,False,0.9,36146818
+36146799,,National Institute of Allergy and Infectious Diseases,,,,,,monkeypox virus,human; monkeypox virus,False,0.9,36146799
+36146462,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36146462
+36128909,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36128909
+36119018,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36119018
+36112363,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36112363
+36111172,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,36111172
+36106642,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36106642
+36104754,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36104754
+36103542,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36103542
+36102311,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36102311
+36093351,,National Institute of Allergy and Infectious Diseases,,,,,,MIS-C,experimental,False,0.9,36093351
+36093348,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36093348
+36059532,,National Institute of Allergy and Infectious Diseases,,,,,,MERS-CoV,experimental,False,0.9,36059532
+36050911,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36050911
+36047331,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,36047331
+36045906,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36045906
+36037469,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36037469
+36034097,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36034097
+36032985,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36032985
+36032969,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36032969
+36032964,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36032964
+36032963,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36032963
+36032119,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36032119
+36016151,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,36016151
+36016104,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,36016104
+36016101,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus disease,clinical,False,0.9,36016101
+36016089,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36016089
+36010011,,National Institute of Allergy and Infectious Diseases,,,,,,TB,clinical,False,0.9,36010011
+36002235,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36002235
+36001075,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36001075
+36000847,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36000847
+35986912,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35986912
+35985993,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35985993
+35982683,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35982683
+35982676,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,35982676
+35982658,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35982658
+35982307,,National Institute of Allergy and Infectious Diseases,,,,,,IAV,experimental,False,0.9,35982307
+35981855,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35981855
+35977169,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35977169
+35971544,,National Institute of Allergy and Infectious Diseases,,,,,,Delta,experimental,False,0.9,35971544
+35963234,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35963234
+35958144,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35958144
+35952670,,National Institute of Allergy and Infectious Diseases,,,,,,IAV-CoV-2,humanized mice,False,0.9,35952670
+35952496,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35952496
+35944006,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35944006
+35941149,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35941149
+35939810,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35939810
+35935779,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35935779
+35932641,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35932641
+35931818,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35931818
+35891697,,National Institute of Allergy and Infectious Diseases,,,,,,HRV,experimental,False,0.9,35891697
+35891619,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35891619
+35882421,,National Institute of Allergy and Infectious Diseases,,,,,,LPS; WHIM,experimental; clinical,False,0.9,35882421
+35876700,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35876700
+35873792,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35873792
+35868845,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35868845
+35866633,,National Institute of Allergy and Infectious Diseases,,,,,,Marburg virus,experimental,False,0.9,35866633
+35862971,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35862971
+35860216,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35860216
+35857640,,National Institute of Allergy and Infectious Diseases,,,,,,IAVs,experimental,False,0.9,35857640
+35857620,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35857620
+35857439,,National Institute of Allergy and Infectious Diseases,,,,,,COV44-62,experimental,False,0.9,35857439
+35852866,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35852866
+35844575,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35844575
+35841885,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35841885
+35835913,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35835913
+35833684,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35833684
+35818363,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35818363
+35803290,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35803290
+35798224,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35798224
+35798000,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35798000
+35797235,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35797235
+35785530,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35785530
+35783502,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35783502
+35764659,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35764659
+35759728,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,35759728
+35759653,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35759653
+35746785,,National Institute of Allergy and Infectious Diseases,,,,,,HIV,metabolomics,False,0.9,35746785
+35728910,,National Institute of Allergy and Infectious Diseases,,,,,,CAP,experimental,False,0.9,35728910
+35724448,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35724448
+35721226,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35721226
+35708626,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35708626
+35679357,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35679357
+35679343,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35679343
+35679259,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35679259
+35672482,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,immunotherapy,False,0.9,35672482
+35671054,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35671054
+35665011,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35665011
+35660376,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35660376
+35653572,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,H1N1,False,0.9,35653572
+35653196,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35653196
+35637389,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35637389
+35637337,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35637337
+35632807,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35632807
+35617986,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35617986
+35617976,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus disease,experimental,False,0.9,35617976
+35609088,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35609088
+35605238,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35605238
+35588755,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35588755
+35580040,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35580040
+35579953,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35579953
+35579509,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35579509
+35576972,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35576972
+35568025,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35568025
+35559666,,National Institute of Allergy and Infectious Diseases,,,,,,Pf,experimental,False,0.9,35559666
+35547849,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35547849
+35538057,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,human influenza,False,0.9,35538057
+35535503,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35535503
+35534723,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35534723
+35531799,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35531799
+35526534,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35526534
+35507130,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35507130
+35506060,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35506060
+35500221,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35500221
+35489332,,National Institute of Allergy and Infectious Diseases,,,,,,H7N9 vaccine trial; 315-19-1D12 antibody; HV1-2 antibody; KV2-28 antibody,,False,0.9,35489332
+35447072,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35447072
+35443020,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35443020
+35441178,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35441178
+35441162,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35441162
+35439166,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35439166
+35415200,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35415200
+35404959,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35404959
+35395191,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35395191
+35392453,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35392453
+35389888,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35389888
+35385353,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,35385353
+35383176,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,35383176
+35380448,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35380448
+35378757,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35378757
+35378752,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35378752
+35371100,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35371100
+35361968,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35361968
+35359831,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35359831
+35353960,,National Institute of Allergy and Infectious Diseases,,,,,,Covid-19,experimental,False,0.9,35353960
+35353885,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,clinical,False,0.9,35353885
+35350208,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35350208
+35350206,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35350206
+35349483,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35349483
+35336950,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35336950
+35335067,,National Institute of Allergy and Infectious Diseases,,,,,,VSV-SARS2,experimental,False,0.9,35335067
+35324257,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35324257
+35319248,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35319248
+35316213,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35316213
+35313387,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35313387
+35303429,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,35303429
+35303426,,National Institute of Allergy and Infectious Diseases,,,,,,Ebola virus,clinical,False,0.9,35303426
+35301181,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35301181
+35292666,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35292666
+35289271,,National Institute of Allergy and Infectious Diseases,,,,,,CoV-2,experimental,False,0.9,35289271
+35273264,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35273264
+35271690,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35271690
+35271298,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35271298
+35265726,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,35265726
+35263638,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35263638
+35262093,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35262093
+35262085,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35262085
+35250994,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35250994
+35233571,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35233571
+35233565,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35233565
+35233550,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35233550
+35233544,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35233544
+35229637,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35229637
+35208863,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35208863
+35195574,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35195574
+35194602,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35194602
+35192673,,National Institute of Allergy and Infectious Diseases,,,,,,H1N1,experimental,False,0.9,35192673
+35191378,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35191378
+35189840,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35189840
+35177862,,National Institute of Allergy and Infectious Diseases,,,,,,pCOVID-19,experimental,False,0.9,35177862
+35172720,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35172720
+35169818,,National Institute of Allergy and Infectious Diseases,,,,,,VOCs,,False,0.9,35169818
+35169815,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35169815
+35169797,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35169797
+35164561,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35164561
+35143587,,National Institute of Allergy and Infectious Diseases,,,,,,B.1.427; B.1.429,experimental,False,0.9,35143587
+35139349,,National Institute of Allergy and Infectious Diseases,,,,,,HCV-Elite Neutralizers,HCV-Elite Neutralizers,False,0.9,35139349
+35139271,,National Institute of Allergy and Infectious Diseases,,,,,,Covid-19,experimental,False,0.9,35139271
+35138912,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,35138912
+35135442,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35135442
+35134185,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35134185
+35118474,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35118474
+35118472,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35118472
+35115707,,National Institute of Allergy and Infectious Diseases,,,,,,H2N2,experimental,False,0.9,35115707
+35115706,,National Institute of Allergy and Infectious Diseases,,,,,,H2-naive; H2-exposed; H2-naive-exposed,clinical,False,0.9,35115706
+35110410,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35110410
+35104245,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35104245
+35095880,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35095880
+35090638,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35090638
+35085183,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35085183
+35081293,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35081293
+35076028,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35076028
+35075461,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,35075461
+35069564,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35069564
+35067905,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35067905
+35062015,,National Institute of Allergy and Infectious Diseases,,,,,,B.1.1.529,experimental,False,0.9,35062015
+35044204,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35044204
+35043111,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35043111
+35043109,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35043109
+35039784,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35039784
+35038256,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35038256
+35037050,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35037050
+35037030,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35037030
+35032523,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35032523
+35029629,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35029629
+35025969,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,animal models,False,0.9,35025969
+35018379,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35018379
+35017676,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35017676
+35012339,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,35012339
+35003140,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,35003140
+34981068,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34981068
+34981057,,National Institute of Allergy and Infectious Diseases,,,,,,Omicron,vaccine; vaccine-related; vaccine-related-to-other-viruses,False,0.9,34981057
+34981053,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34981053
+34969294,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34969294
+34961855,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34961855
+34960775,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34960775
+34960755,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34960755
+34956207,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34956207
+34956199,,National Institute of Allergy and Infectious Diseases,,,,,,NiV,experimental,False,0.9,34956199
+34955425,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34955425
+34942632,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34942632
+34941449,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34941449
+34940844,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34940844
+34938283,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34938283
+34931202,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34931202
+34931200,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34931200
+34931189,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34931189
+34928698,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34928698
+34923028,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34923028
+34921774,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34921774
+34920134,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34920134
+34910934,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34910934
+34910859,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34910859
+34909791,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-19,experimental,False,0.9,34909791
+34909774,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34909774
+34909772,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34909772
+34907224,,National Institute of Allergy and Infectious Diseases,,,,,,KFDV,experimental,False,0.9,34907224
+34898670,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.5,34898670
+34893818,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34893818
+34893352,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34893352
+34889942,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34889942
+34878316,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34878316
+34876520,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34876520
+34875033,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34875033
+36908301,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,36908301
+34815117,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34815117
+34812653,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34812653
+34807849,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34807849
+34799704,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34799704
+34790982,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34790982
+34790978,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34790978
+34777392,,National Institute of Allergy and Infectious Diseases,,,,,,MARV,experimental,False,0.9,34777392
+34758415,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34758415
+34751276,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34751276
+34751267,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34751267
+34748615,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34748615
+34729565,,National Institute of Allergy and Infectious Diseases,,,,,,CoV-2,experimental,False,0.9,34729565
+34729564,,National Institute of Allergy and Infectious Diseases,,,,,,H3N2,experimental,False,0.9,34729564
+34726473,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34726473
+34724885,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34724885
+34724404,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34724404
+34711815,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34711815
+34710354,,National Institute of Allergy and Infectious Diseases,,,,,,MERS-CoV-2,experimental,False,0.9,34710354
+34706271,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34706271
+34704090,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34704090
+34698363,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,microphysiological systems,False,0.9,34698363
+34696439,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,34696439
+34695724,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34695724
+34678071,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34678071
+34672949,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34672949
+34672695,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34672695
+34671778,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34671778
+34671773,,National Institute of Allergy and Infectious Diseases,,,,,,Covid-19,experimental,False,0.9,34671773
+34668774,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34668774
+34667308,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34667308
+34648357,,National Institute of Allergy and Infectious Diseases,,,,,,COVID-19,experimental,False,0.9,34648357
+34632800,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34632800
+34626576,,National Institute of Allergy and Infectious Diseases,,,,,,,,False,0.0,34626576
+34620866,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34620866
+34612499,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34612499
+34611671,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34611671
+34607940,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34607940
+34591596,,National Institute of Allergy and Infectious Diseases,,,,,,AZD1222,experimental,False,0.9,34591596
+34587480,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34587480
+34587382,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34587382
+34583332,,National Institute of Allergy and Infectious Diseases,,,,,,EVD,experimental,False,0.9,34583332
+34579282,,National Institute of Allergy and Infectious Diseases,,,,,,SUDAN EBOLAVIRUS,filovirus,False,0.9,34579282
+34578379,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34578379
+34551225,,National Institute of Allergy and Infectious Diseases,,,,,,Covid-19,experimental,False,0.9,34551225
+34539056,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34539056
+34537245,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34537245
+34529738,,National Institute of Allergy and Infectious Diseases,,,,,,EBOV,experimental,False,0.9,34529738
+34529476,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34529476
+34521813,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34521813
+34519517,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34519517
+34518839,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34518839
+34510475,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34510475
+34495876,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34495876
+34494021,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34494021
+34492260,,National Institute of Allergy and Infectious Diseases,,,,,,SARS-CoV-2,experimental,False,0.9,34492260

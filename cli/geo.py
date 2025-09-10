@@ -13,7 +13,11 @@ app = typer.Typer()
 
 
 @app.command()
-def build(labs: Path, evidence: Path, out: Path) -> None:
+def build(
+    labs: Path = typer.Argument(..., help="Path to labs data"),
+    evidence: Path = typer.Argument(..., help="Path to evidence data"),
+    out: Path = typer.Argument(..., help="Output path for GeoJSON"),
+) -> None:
     """Build GeoJSON from labs and evidence data.
     
     Args:

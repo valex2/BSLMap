@@ -28,9 +28,10 @@ EUPMC_JSONL  = $(BRONZE)/eupmc_links.jsonl
 CORPUS_JSONL = $(SILVER)/corpus.jsonl
 EXTRACTS_JL  = $(SILVER)/extractions.jsonl     # produced by your LLM step
 EXTRACTS_CSV = $(GOLD)/extracted_labs.csv
+LABS_CSV     = data/labs.csv
 LABS_GEOJSON = $(GOLD)/labs.geojson
 
-.PHONY: help env install lint type test clean bronze silver gold web
+.PHONY: help env install lint type test clean bronze silver gold web web-install
 
 help:
 	@echo "make env        # create/update conda env ($(CONDA_ENV))"
@@ -39,7 +40,8 @@ help:
 	@echo "make silver     # corpus build -> silver (DEBUG=1 for verbose)"
 	@echo "make gold       # consolidate + geojson -> gold (DEBUG=1 for verbose)"
 	@echo "make debug      # run silver step with debug output (same as make silver DEBUG=1)"
-	@echo "make web        # serve web/"
+	@echo "make web        # Run the web server"
+	@echo "make web-install # install web dependencies"
 	@echo "make lint type test clean"
 
 env:
@@ -140,30 +142,108 @@ $(EXTRACTS_JL): $(CORPUS_JSONL)
 	@echo "  - Output file size: $(shell du -h $@ 2>/dev/null || echo 'unknown')"
 	@echo "  - Output file line count: $(shell wc -l < $@ 2>/dev/null || echo 'unknown')"
 
-$(EXTRACTS_CSV): $(EXTRACTS_JL)
+$(EXTRACTS_CSV): $(EXTRACTS_JL) $(LABS_CSV) $(CORPUS_JSONL)
 	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Starting extractions consolidation..."
-	@echo "  - Input file: $(EXTRACTS_JL)"
+	@echo "  - Input files: $(EXTRACTS_JL), $(LABS_CSV), $(CORPUS_JSONL)"
 	@echo "  - Output file: $@"
 	@if [ "$(DEBUG)" != "0" ]; then \
 		echo "  - Debug mode: enabled"; \
 	fi
 	@mkdir -p $(GOLD)
 	@if [ "$(DEBUG)" != "0" ]; then \
-		echo "  - Running: $(PY) -m cli.consolidate merge $(EXTRACTS_JL) $@"; \
+		echo "  - Running: $(PY) -m cli.consolidate $(EXTRACTS_JL) $@ --corpus $(CORPUS_JSONL)"; \
 	fi
-	@$(PY) -m cli.consolidate merge $(EXTRACTS_JL) $@ 2>&1 | tee -a consolidate.log
+	@$(PY) -m cli.consolidate $(EXTRACTS_JL) $@ --corpus $(CORPUS_JSONL) 2>&1 | tee -a consolidate.log
 	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Completed extractions consolidation"
 
-gold: $(EXTRACTS_CSV) $(LABS_GEOJSON)
+gold: $(EXTRACTS_CSV) $(LABS_CSV) $(LABS_GEOJSON)
 	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Completed gold target"
 
-$(LABS_GEOJSON): $(EXTRACTS_CSV) data/labs.csv
+# Generate labs.csv from institutions.txt
+$(LABS_CSV): config/institutions.txt
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Generating labs.csv from institutions.txt..."
+	@mkdir -p data
+	@$(PY) scripts/generate_labs_csv.py
+
+$(LABS_GEOJSON): $(EXTRACTS_CSV) $(LABS_CSV)
 	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Starting GeoJSON generation..."
-	@echo "  - Input files: data/labs.csv, $(EXTRACTS_CSV)"
+	@echo "  - Input files: $(LABS_CSV), $(EXTRACTS_CSV)"
 	@echo "  - Output file: $@"
 	mkdir -p $(GOLD)
-	$(PY) -m cli.geo build data/labs.csv $(EXTRACTS_CSV) $@
+	cd $(dir $(realpath $(firstword $(MAKEFILE_LIST)))) && \
+	$(PY) -m cli.geo $(LABS_CSV) $(EXTRACTS_CSV) $@
 	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Completed GeoJSON generation"
 
+# Install web dependencies
+web-install: web-backend-install web-frontend-install
+
+# Install backend dependencies
+web-backend-install:
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Installing backend dependencies..."
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Installing dependencies from requirements.txt..."
+	cd web/backend && $(PIP) install -r requirements.txt
+
+# Install frontend dependencies
+web-frontend-install:
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Installing frontend dependencies..."
+	cd web/frontend && npm install
+
+# Build frontend
+web-build:
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Building frontend..."
+	cd web/frontend && npm run build
+
+# Run the development servers
 web:
-	$(PY) -m http.server -d web 8010
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Cleaning up frontend dependencies..."
+	rm -rf web/frontend/node_modules web/frontend/package-lock.json
+
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Installing backend dependencies..."
+	cd web/backend && $(PIP) install -r requirements.txt
+
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Installing frontend dependencies..."
+	cd web/frontend && npm install --legacy-peer-deps
+
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Starting development servers..."
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Starting backend server on http://localhost:8000"
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Starting frontend server on http://localhost:3000"
+	@echo ""
+	@echo "Access the application at: http://localhost:3000"
+	@echo "API documentation: http://localhost:8000/docs"
+	@echo ""
+	@echo "Press Ctrl+C to stop both servers"
+	@echo ""
+	@# Create a script to run both servers
+	@echo '#!/bin/bash' > /tmp/run_servers.sh
+	@echo 'cd "$(CURDIR)/web/backend" && $(PY) -m uvicorn app.main:app --reload --port 8000 > ../backend.log 2>&1 &' >> /tmp/run_servers.sh
+	@echo 'BACKEND_PID=$$!' >> /tmp/run_servers.sh
+	@echo 'echo $$BACKEND_PID > /tmp/bslmap_backend.pid' >> /tmp/run_servers.sh
+	@echo 'cd "$(CURDIR)/web/frontend" && npm run dev 2>&1 | tee -a ../frontend.log' >> /tmp/run_servers.sh
+	@echo 'kill $$BACKEND_PID 2>/dev/null || true' >> /tmp/run_servers.sh
+	@echo 'rm -f /tmp/bslmap_backend.pid' >> /tmp/run_servers.sh
+	@chmod +x /tmp/run_servers.sh
+	@/tmp/run_servers.sh
+
+# Stop development servers
+web-stop:
+	@if [ -f /tmp/bslmap_backend.pid ]; then \
+	  echo "Stopping backend server (PID: $$(cat /tmp/bslmap_backend.pid))"; \
+	  kill -9 $$(cat /tmp/bslmap_backend.pid) 2>/dev/null || true; \
+	  rm -f /tmp/bslmap_backend.pid; \
+	fi
+	@if [ -f web/frontend.pid ]; then \
+	  echo "Stopping frontend server (PID: $$(cat web/frontend.pid))"; \
+	  kill $$(cat web/frontend.pid) 2>/dev/null || true; \
+	  rm -f web/frontend.pid; \
+	fi
+	@rm -f web/*.log
+
+# Clean web artifacts
+web-clean:
+	@echo "[$(shell date +'%Y-%m-%d %H:%M:%S')] Cleaning web artifacts..."
+	@rm -rf web/backend/__pycache__ web/backend/*.pyc
+	@rm -rf web/frontend/node_modules web/frontend/dist web/frontend/.vite
+	@rm -f web/backend.pid web/frontend.pid web/*.log
+
+# Add web-clean to the main clean target
+clean: web-clean

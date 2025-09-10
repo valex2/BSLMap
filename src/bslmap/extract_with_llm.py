@@ -242,6 +242,10 @@ def extract_from_chunk(
                     pmid = doc_id.split("pmid:")[1].split("#")[0]
                     result["source_pmid"] = pmid
             
+            # Include institution information from the input chunk if available
+            if "aff_hint" in chunk and chunk["aff_hint"]:
+                result["institution"] = chunk["aff_hint"]
+            
             # Ensure required fields exist with proper defaults
             if "pathogens" not in result:
                 result["pathogens"] = []
@@ -300,6 +304,17 @@ def process_batch(batch: List[Dict[str, Any]], model, tokenizer, base_prompt: st
             if debug:
                 process_time = time.time() - start_time
                 logger.debug(f"Processed {chunk_id} in {process_time:.2f}s")
+            
+            # Ensure aff_hint is included in the result if present in the chunk
+            if "aff_hint" in chunk and chunk["aff_hint"] and isinstance(chunk["aff_hint"], str):
+                # Ensure result is a dictionary before adding the institution field
+                if not isinstance(result, dict):
+                    result = {}
+                result["institution"] = chunk["aff_hint"]
+                
+            # Ensure result has required fields
+            if not isinstance(result, dict):
+                result = {"doc_id": chunk.get("doc_id", "")}
                 
             results.append(result)
             

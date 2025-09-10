@@ -13,15 +13,16 @@ app = typer.Typer()
 
 
 @app.command()
-def merge(in_: Path, out: Path) -> None:
+def merge(in_: Path, out: Path, corpus: Path = Path("data/silver/corpus.jsonl")) -> None:
     """Merge extraction files from input path to output path.
     
     Args:
         in_: Input path containing extraction files
         out: Output path for merged results
+        corpus: Path to corpus JSONL file with original data
     """
     out.parent.mkdir(parents=True, exist_ok=True)
-    merge_extractions(in_, out)
+    merge_extractions(in_, out, corpus)
 
 
 if __name__ == "__main__":
