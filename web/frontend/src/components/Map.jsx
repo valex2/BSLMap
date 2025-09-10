@@ -116,13 +116,20 @@ export default function MapComponent({ data, onLabSelect, selectedLabId }) {
             'interpolate',
             ['linear'],
             ['to-number', ['get', 'evidence_count'], 1],
-            1, 3,
-            1000, 10,
+            1, 6,
+            1000, 16,
           ],
-          'circle-color': '#1f77b4',
-          'circle-opacity': 0.75,
-          'circle-stroke-width': 1,
+          'circle-color': [
+            'match',
+            ['get', 'bsl_level'],
+            'BSL-4', '#d62728', // Red for BSL-4
+            'BSL-3', '#ff7f0e', // Orange for BSL-3
+            '#2ca02c' // Green for others/unknown
+          ],
+          'circle-opacity': 0.8,
+          'circle-stroke-width': 1.5,
           'circle-stroke-color': '#ffffff',
+          'circle-stroke-opacity': 0.8,
         },
       });
 
@@ -182,11 +189,45 @@ export default function MapComponent({ data, onLabSelect, selectedLabId }) {
       }
     }
 
+    // Change cursor to pointer when hovering over lab markers
+    map.on('mouseenter', LAB_CIRCLE_LAYER_ID, () => {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', LAB_CIRCLE_LAYER_ID, () => {
+      map.getCanvas().style.cursor = '';
+    });
+
     // Click -> onLabSelect(feature)
     const handleClick = (e) => {
-      const f = map.queryRenderedFeatures(e.point, { layers: [LAB_CIRCLE_LAYER_ID] })?.[0];
-      if (f && typeof onLabSelect === 'function') onLabSelect(f);
+      const features = map.queryRenderedFeatures(e.point, { layers: [LAB_CIRCLE_LAYER_ID] });
+      if (features.length > 0) {
+        const feature = features[0];
+        // Get all properties including nested ones
+        const properties = {
+          ...feature.properties,
+          // If there are any nested properties in the feature, include them
+          ...(feature.properties.properties || {})
+        };
+        
+        // If there's a selected lab and it's the same as the clicked one, deselect it
+        if (selectedLabId === properties.id) {
+          if (typeof onLabSelect === 'function') onLabSelect(null);
+        } else if (typeof onLabSelect === 'function') {
+          onLabSelect({
+            ...feature,
+            properties
+          });
+        }
+        
+        // Prevent event propagation to other layers
+        e.originalEvent.stopPropagation();
+      } else if (selectedLabId) {
+        // Clicked on the map but not on a lab, deselect if there's a selected lab
+        if (typeof onLabSelect === 'function') onLabSelect(null);
+      }
     };
+    
     map.on('click', handleClick);
 
     return () => {
@@ -219,29 +260,33 @@ export default function MapComponent({ data, onLabSelect, selectedLabId }) {
       ref={containerRef}
       sx={{
         width: '100%',
-        height: '100%',
-        minHeight: 500,
+        height: '100vh',
         position: 'relative',
-        // Ensure the canvas actually fills its parent in flex/grid layouts
-        '& .maplibregl-canvas': { width: '100% !important', height: '100% !important' },
+        '& .mapboxgl-canvas-container': {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        },
       }}
     >
       {!loaded && (
         <Box
           sx={{
             position: 'absolute',
-            inset: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'column',
-            gap: 1,
+            alignItems: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.8)',
             zIndex: 1,
-            pointerEvents: 'none',
           }}
         >
           <CircularProgress />
-          <Typography variant="body2">Loading map…</Typography>
         </Box>
       )}
     </Box>
