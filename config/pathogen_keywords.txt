@@ -1,0 +1,22 @@
+BSL-3
+BSL-4
+pathogens with pandemic potential
+PPP
+gain-of-function
+GoF
+influenza
+H5N1
+SARS-CoV
+MERS-CoV
+Nipah
+Ebola
+filovirus
+henipavirus
+orthopox
+variola
+monkeypox
+H7N9
+H1N1
+avian influenza
+coronavirus
+select agent

@@ -1,0 +1,34 @@
+bslmap/
+├─ environment.yml                 # Conda env spec (Python + deps)
+├─ pyproject.toml                  # Package + dev tools (ruff/black/mypy/pytest)
+├─ Makefile                        # Orchestration (supports conda)
+├─ README.md
+├─ config/
+│  ├─ settings.toml
+│  ├─ institutions.txt
+│  └─ pathogen_keywords.txt
+├─ data/
+│  ├─ bronze/                      # raw pulls (PubMed, EuPMC)
+│  ├─ silver/                      # normalized corpus + LLM extractions
+│  └─ gold/                        # map-ready CSV/GeoJSON
+├─ src/bslmap/
+│  ├─ __init__.py
+│  ├─ cfg.py                       # pydantic settings
+│  ├─ io_utils.py                  # atomic I/O, jsonl helpers
+│  ├─ schemas.py                   # artifact schemas (pydantic)
+│  ├─ harvest_pubmed.py            # pure PubMed logic
+│  ├─ harvest_eupmc.py             # pure EuPMC logic
+│  ├─ build_corpus.py              # abstracts/full text → chunks
+│  ├─ consolidate_extractions.py   # LLM JSONL → extracted_labs.csv
+│  └─ geojson.py                   # labs.csv + evidence → labs.geojson
+├─ cli/
+│  ├─ harvest.py                   # thin Typer CLIs (pubmed/eupmc)
+│  ├─ corpus.py                    # build corpus
+│  ├─ consolidate.py               # merge extractions
+│  └─ geo.py                       # build GeoJSON
+├─ tests/
+│  ├─ test_chunking.py
+│  ├─ test_linking.py
+│  └─ data/                        # tiny fixtures
+└─ web/
+   └─ index.html                   # Leaflet viewer (reads data/gold/labs.geojson)

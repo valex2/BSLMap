@@ -1,0 +1,6 @@
+since_year = 2010
+max_per_institution = 1000
+email_for_ncbi = "valex@stanford.edu"
+europe_pmc_cc_by_only = true
+chunk_target_tokens = 1200
+chunk_overlap_tokens = 150
